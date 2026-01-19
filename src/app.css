@@ -1,1 +1,55 @@
 @import "tailwindcss";
+
+/* =========================================
+   Design System: Color Palette
+   ========================================= */
+
+:root {
+  /* Brand colors */
+  --color-primary: #1e40af;         /* Deep blue - headers, links */
+  --color-secondary: #475569;       /* Slate gray - body text */
+  --color-accent: #f59e0b;          /* Amber - highlights, callouts */
+
+  /* Semantic colors for diagrams */
+  --color-treatment: #22c55e;       /* Green - treatment group */
+  --color-control: #3b82f6;         /* Blue - control group */
+  --color-confounder: #ef4444;      /* Red - confounding variables */
+  --color-outcome: #8b5cf6;         /* Purple - outcome variables */
+  --color-arrow: #64748b;           /* Gray - causal arrows */
+
+  /* Background variants */
+  --color-surface: #ffffff;         /* White - cards */
+  --color-surface-alt: #f8fafc;     /* Slate-50 - alternate surface */
+  --color-muted: #f1f5f9;           /* Slate-100 - secondary surfaces */
+
+  /* Text colors */
+  --color-text-primary: #0f172a;    /* Slate-900 - headings */
+  --color-text-secondary: #475569;  /* Slate-600 - body text */
+  --color-text-muted: #94a3b8;      /* Slate-400 - captions */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Brand colors - adjusted for dark mode */
+    --color-primary: #60a5fa;         /* Lighter blue */
+    --color-secondary: #94a3b8;       /* Lighter slate */
+    --color-accent: #fbbf24;          /* Brighter amber */
+
+    /* Semantic colors for diagrams - slightly brighter for dark backgrounds */
+    --color-treatment: #4ade80;       /* Brighter green */
+    --color-control: #60a5fa;         /* Brighter blue */
+    --color-confounder: #f87171;      /* Brighter red */
+    --color-outcome: #a78bfa;         /* Brighter purple */
+    --color-arrow: #94a3b8;           /* Lighter gray */
+
+    /* Background variants - dark mode */
+    --color-surface: #1e293b;         /* Slate-800 */
+    --color-surface-alt: #0f172a;     /* Slate-900 */
+    --color-muted: #334155;           /* Slate-700 */
+
+    /* Text colors - dark mode */
+    --color-text-primary: #f8fafc;    /* Slate-50 */
+    --color-text-secondary: #cbd5e1;  /* Slate-300 */
+    --color-text-muted: #64748b;      /* Slate-500 */
+  }
+}
