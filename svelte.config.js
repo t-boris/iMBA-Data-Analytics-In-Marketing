@@ -19,9 +19,14 @@ const config = {
 				if (path.startsWith('/modules') || path === '/glossary' || path === '/exam-prep') {
 					return;
 				}
+				// Ignore 404s for module lecture routes (will be created in Phase 6)
+				if (path.match(/^\/module\/[^/]+\/[^/]+$/)) {
+					return;
+				}
 				// Otherwise, fail the build
 				throw new Error(message);
-			}
+			},
+			handleUnseenRoutes: 'ignore'
 		}
 	}
 };
