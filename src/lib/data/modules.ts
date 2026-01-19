@@ -20,7 +20,7 @@ const module1Lectures: Lecture[] = [
     duration: '20 min read',
     hasVisualization: true,
     hasAnimation: true,
-    status: 'coming-soon'
+    status: 'ready'
   },
   {
     id: '1-2',
