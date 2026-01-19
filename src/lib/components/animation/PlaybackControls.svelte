@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getContext, onMount, onDestroy } from 'svelte';
+  import { getContext, onMount } from 'svelte';
   import type { AnimationStep, AnimationState } from './index';
 
   // Get controls from parent AnimationTimeline context
@@ -55,10 +55,11 @@
 
   onMount(() => {
     window.addEventListener('keydown', handleKeydown);
-  });
 
-  onDestroy(() => {
-    window.removeEventListener('keydown', handleKeydown);
+    // Return cleanup function for when component unmounts
+    return () => {
+      window.removeEventListener('keydown', handleKeydown);
+    };
   });
 
   // Derived values
