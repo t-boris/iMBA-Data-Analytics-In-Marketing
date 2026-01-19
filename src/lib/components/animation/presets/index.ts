@@ -7,18 +7,21 @@ import type { DiagramData } from '$lib/components/diagrams';
  * Explains how a confounder creates spurious correlation between treatment and outcome
  */
 export function createConfoundingExplanation(): ExplanationStep[] {
+  // Node positions optimized for 500x280 canvas with 40px padding
+  // Centered horizontally, with good vertical spacing for labels
+  const treatmentNode: DiagramData['nodes'][0] = { id: 'treatment', label: 'Treatment', type: 'treatment', x: 80, y: 140 };
+  const outcomeNode: DiagramData['nodes'][0] = { id: 'outcome', label: 'Outcome', type: 'outcome', x: 340, y: 140 };
+  const confounderNode: DiagramData['nodes'][0] = { id: 'confounder', label: 'Confounder', type: 'confounder', x: 210, y: 40 };
+
   // Base diagram - just showing variables
   const baseDiagram: DiagramData = {
-    nodes: [
-      { id: 'treatment', label: 'Treatment', type: 'treatment', x: 100, y: 140 },
-      { id: 'outcome', label: 'Outcome', type: 'outcome', x: 300, y: 140 }
-    ],
+    nodes: [treatmentNode, outcomeNode],
     edges: []
   };
 
   // With apparent causal arrow
   const withCausalArrow: DiagramData = {
-    nodes: [...baseDiagram.nodes],
+    nodes: [treatmentNode, outcomeNode],
     edges: [
       { id: 't-o', source: 'treatment', target: 'outcome', label: 'Causal?' }
     ]
@@ -26,10 +29,7 @@ export function createConfoundingExplanation(): ExplanationStep[] {
 
   // Reveal confounder
   const withConfounder: DiagramData = {
-    nodes: [
-      ...baseDiagram.nodes,
-      { id: 'confounder', label: 'Confounder', type: 'confounder', x: 200, y: 40 }
-    ],
+    nodes: [treatmentNode, outcomeNode, confounderNode],
     edges: [
       { id: 't-o', source: 'treatment', target: 'outcome', label: 'Causal?', style: 'dashed' }
     ]
@@ -37,10 +37,7 @@ export function createConfoundingExplanation(): ExplanationStep[] {
 
   // Full confounding structure
   const fullConfounding: DiagramData = {
-    nodes: [
-      ...baseDiagram.nodes,
-      { id: 'confounder', label: 'Confounder', type: 'confounder', x: 200, y: 40 }
-    ],
+    nodes: [treatmentNode, outcomeNode, confounderNode],
     edges: [
       { id: 'c-t', source: 'confounder', target: 'treatment' },
       { id: 'c-o', source: 'confounder', target: 'outcome' },
@@ -102,21 +99,24 @@ export function createConfoundingExplanation(): ExplanationStep[] {
  * Explains how randomized experiments eliminate confounding
  */
 export function createRCTExplanation(): ExplanationStep[] {
+  // Node positions optimized for 500x280 canvas with 40px padding
+  // RCT has a vertical flow, so we compress the y-coordinates
+
   // Population
   const population: DiagramData = {
     nodes: [
-      { id: 'population', label: 'Population', type: 'variable', x: 200, y: 40 }
+      { id: 'population', label: 'Population', type: 'variable', x: 210, y: 30 }
     ],
     edges: []
   };
 
-  // Randomization
+  // Randomization - spread out to fit in canvas
   const randomization: DiagramData = {
     nodes: [
-      { id: 'population', label: 'Population', type: 'variable', x: 200, y: 40 },
-      { id: 'random', label: 'Random', type: 'variable', x: 200, y: 120 },
-      { id: 'treatment', label: 'Treatment', type: 'treatment', x: 100, y: 200 },
-      { id: 'control', label: 'Control', type: 'control', x: 300, y: 200 }
+      { id: 'population', label: 'Population', type: 'variable', x: 210, y: 20 },
+      { id: 'random', label: 'Random', type: 'variable', x: 210, y: 80 },
+      { id: 'treatment', label: 'Treatment', type: 'treatment', x: 80, y: 150 },
+      { id: 'control', label: 'Control', type: 'control', x: 340, y: 150 }
     ],
     edges: [
       { id: 'p-r', source: 'population', target: 'random' },
@@ -125,15 +125,20 @@ export function createRCTExplanation(): ExplanationStep[] {
     ]
   };
 
-  // Outcomes
+  // Outcomes - use separate structure to avoid deep nesting issues
   const outcomes: DiagramData = {
     nodes: [
-      ...randomization.nodes,
-      { id: 'outcome-t', label: 'Y(1)', type: 'outcome', x: 100, y: 280 },
-      { id: 'outcome-c', label: 'Y(0)', type: 'outcome', x: 300, y: 280 }
+      { id: 'population', label: 'Population', type: 'variable', x: 210, y: 10 },
+      { id: 'random', label: 'Random', type: 'variable', x: 210, y: 55 },
+      { id: 'treatment', label: 'Treatment', type: 'treatment', x: 80, y: 105 },
+      { id: 'control', label: 'Control', type: 'control', x: 340, y: 105 },
+      { id: 'outcome-t', label: 'Y(1)', type: 'outcome', x: 80, y: 160 },
+      { id: 'outcome-c', label: 'Y(0)', type: 'outcome', x: 340, y: 160 }
     ],
     edges: [
-      ...randomization.edges,
+      { id: 'p-r', source: 'population', target: 'random' },
+      { id: 'r-t', source: 'random', target: 'treatment' },
+      { id: 'r-c', source: 'random', target: 'control' },
       { id: 't-yt', source: 'treatment', target: 'outcome-t' },
       { id: 'c-yc', source: 'control', target: 'outcome-c' }
     ]
@@ -194,10 +199,12 @@ export function createRCTExplanation(): ExplanationStep[] {
  * Explains the fundamental concept of potential outcomes
  */
 export function createTreatmentEffectExplanation(): ExplanationStep[] {
+  // Node positions optimized for 500x280 canvas with 40px padding
+
   // Individual
   const individual: DiagramData = {
     nodes: [
-      { id: 'person', label: 'Individual', type: 'variable', x: 200, y: 100 }
+      { id: 'person', label: 'Individual', type: 'variable', x: 210, y: 80 }
     ],
     edges: []
   };
@@ -205,9 +212,9 @@ export function createTreatmentEffectExplanation(): ExplanationStep[] {
   // Potential outcomes
   const potentialOutcomes: DiagramData = {
     nodes: [
-      { id: 'person', label: 'Individual', type: 'variable', x: 200, y: 60 },
-      { id: 'y1', label: 'Y(1)', type: 'outcome', x: 100, y: 160 },
-      { id: 'y0', label: 'Y(0)', type: 'outcome', x: 300, y: 160 }
+      { id: 'person', label: 'Individual', type: 'variable', x: 210, y: 40 },
+      { id: 'y1', label: 'Y(1)', type: 'outcome', x: 80, y: 140 },
+      { id: 'y0', label: 'Y(0)', type: 'outcome', x: 340, y: 140 }
     ],
     edges: [
       { id: 'p-y1', source: 'person', target: 'y1' },
@@ -227,9 +234,9 @@ export function createTreatmentEffectExplanation(): ExplanationStep[] {
   // Fundamental problem
   const fundamentalProblem: DiagramData = {
     nodes: [
-      { id: 'person', label: 'Individual', type: 'variable', x: 200, y: 60 },
-      { id: 'y1', label: 'Y(1) = ?', type: 'outcome', x: 100, y: 160 },
-      { id: 'y0', label: 'Y(0) = 5', type: 'outcome', x: 300, y: 160 }
+      { id: 'person', label: 'Individual', type: 'variable', x: 210, y: 40 },
+      { id: 'y1', label: 'Y(1) = ?', type: 'outcome', x: 80, y: 140 },
+      { id: 'y0', label: 'Y(0) = 5', type: 'outcome', x: 340, y: 140 }
     ],
     edges: [
       { id: 'p-y1', source: 'person', target: 'y1', style: 'dashed' },
