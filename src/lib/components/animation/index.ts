@@ -13,6 +13,18 @@ export interface AnimationState {
   progress: number;
 }
 
+// Diagram animation sequence types
+export interface AnimationSequence {
+  steps: SequenceStep[];
+}
+
+export interface SequenceStep {
+  targets: string[]; // node/edge IDs
+  animation: 'fadeIn' | 'scaleIn' | 'draw' | 'highlight';
+  duration?: number;
+  stagger?: number;
+}
+
 // GSAP context helpers
 export {
   createTimeline,
@@ -28,3 +40,8 @@ export {
 // Components
 export { default as AnimationTimeline } from './AnimationTimeline.svelte';
 export { default as PlaybackControls } from './PlaybackControls.svelte';
+
+// Diagram animation components
+export { default as AnimatedNode } from './AnimatedNode.svelte';
+export { default as AnimatedEdge } from './AnimatedEdge.svelte';
+export { default as AnimatedCausalDiagram } from './AnimatedCausalDiagram.svelte';
