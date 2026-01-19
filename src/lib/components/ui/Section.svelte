@@ -22,8 +22,8 @@
 
 	const bgClasses = {
 		none: '',
-		muted: 'bg-slate-100',
-		surface: 'bg-white'
+		muted: 'section-bg-muted',
+		surface: 'section-bg-surface'
 	};
 </script>
 

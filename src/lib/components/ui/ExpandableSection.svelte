@@ -17,14 +17,15 @@
   let isOpen = $state(defaultOpen);
 </script>
 
-<div class="border border-slate-200 rounded-lg overflow-hidden {className}">
+<div class="expandable-section rounded-lg overflow-hidden {className}">
   <button
     onclick={() => isOpen = !isOpen}
-    class="w-full flex items-center justify-between p-4 bg-slate-50 hover:bg-slate-100 transition-colors"
+    class="w-full flex items-center justify-between p-4 expandable-header transition-colors"
   >
-    <span class="font-medium text-slate-900">{title}</span>
+    <span class="font-medium" style="color: var(--color-text-primary);">{title}</span>
     <svg
-      class="w-5 h-5 text-slate-500 transition-transform duration-200"
+      class="w-5 h-5 transition-transform duration-200"
+      style="color: var(--color-text-muted);"
       class:rotate-180={isOpen}
       fill="none"
       viewBox="0 0 24 24"
@@ -35,7 +36,7 @@
   </button>
 
   {#if isOpen}
-    <div transition:slide={{ duration: 200 }} class="p-4 border-t border-slate-200">
+    <div transition:slide={{ duration: 200 }} class="p-4 expandable-content">
       {@render children()}
     </div>
   {/if}

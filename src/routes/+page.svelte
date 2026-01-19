@@ -83,27 +83,27 @@
 				These colors represent different elements in causal diagrams and statistical visualizations.
 			</Typography>
 			<Grid cols={5} gap="md">
-				<div class="flex flex-col items-center p-4 rounded-lg bg-slate-100">
+				<div class="flex flex-col items-center p-4 rounded-lg section-bg-muted">
 					<div class="w-16 h-16 rounded-full mb-3" style="background-color: var(--color-treatment);"></div>
 					<Typography variant="h4">Treatment</Typography>
 					<Typography variant="small" class="text-center">Intervention</Typography>
 				</div>
-				<div class="flex flex-col items-center p-4 rounded-lg bg-slate-100">
+				<div class="flex flex-col items-center p-4 rounded-lg section-bg-muted">
 					<div class="w-16 h-16 rounded-full mb-3" style="background-color: var(--color-control);"></div>
 					<Typography variant="h4">Control</Typography>
 					<Typography variant="small" class="text-center">Baseline</Typography>
 				</div>
-				<div class="flex flex-col items-center p-4 rounded-lg bg-slate-100">
+				<div class="flex flex-col items-center p-4 rounded-lg section-bg-muted">
 					<div class="w-16 h-16 rounded-full mb-3" style="background-color: var(--color-confounder);"></div>
 					<Typography variant="h4">Confounder</Typography>
 					<Typography variant="small" class="text-center">Bias source</Typography>
 				</div>
-				<div class="flex flex-col items-center p-4 rounded-lg bg-slate-100">
+				<div class="flex flex-col items-center p-4 rounded-lg section-bg-muted">
 					<div class="w-16 h-16 rounded-full mb-3" style="background-color: var(--color-outcome);"></div>
 					<Typography variant="h4">Outcome</Typography>
 					<Typography variant="small" class="text-center">Dependent var</Typography>
 				</div>
-				<div class="flex flex-col items-center p-4 rounded-lg bg-slate-100">
+				<div class="flex flex-col items-center p-4 rounded-lg section-bg-muted">
 					<div class="w-16 h-16 rounded-full mb-3" style="background-color: var(--color-arrow);"></div>
 					<Typography variant="h4">Arrow</Typography>
 					<Typography variant="small" class="text-center">Causal link</Typography>
@@ -179,22 +179,22 @@
 			<Typography variant="h3" class="mb-4">ConceptCard (Category Colors)</Typography>
 			<Grid cols={4} gap="md" class="mb-8">
 				<ConceptCard
-					title="Treatment Effect"
+					term="Treatment Effect"
 					category="treatment"
 					definition="The causal impact of an intervention"
 				/>
 				<ConceptCard
-					title="Control Group"
+					term="Control Group"
 					category="control"
 					definition="Baseline for comparison"
 				/>
 				<ConceptCard
-					title="Confounding Bias"
+					term="Confounding Bias"
 					category="confounder"
 					definition="When a third variable affects both"
 				/>
 				<ConceptCard
-					title="Outcome Variable"
+					term="Outcome Variable"
 					category="outcome"
 					definition="What we measure as the effect"
 				/>

@@ -26,12 +26,12 @@
   };
 
   const variantClasses = {
-    ghost: 'hover:bg-slate-100 text-slate-600 hover:text-slate-900',
-    outline: 'border border-slate-300 hover:border-slate-400 text-slate-600',
-    filled: 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+    ghost: 'icon-btn-ghost',
+    outline: 'icon-btn-outline',
+    filled: 'icon-btn-filled'
   };
 
-  const baseClasses = 'inline-flex items-center justify-center rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none';
+  const baseClasses = 'inline-flex items-center justify-center rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none icon-btn-base';
 </script>
 
 <button

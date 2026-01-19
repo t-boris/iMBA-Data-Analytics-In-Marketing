@@ -23,14 +23,14 @@
 
 <div class="w-full {className}">
   {#if showLabel}
-    <div class="flex justify-between mb-1 text-sm text-slate-600">
+    <div class="flex justify-between mb-1 text-sm" style="color: var(--color-text-secondary);">
       <span>Progress</span>
       <span>{Math.round(percentage)}%</span>
     </div>
   {/if}
-  <div class="w-full bg-slate-200 rounded-full overflow-hidden {sizeClasses[size]}">
+  <div class="w-full progress-track rounded-full overflow-hidden {sizeClasses[size]}">
     <div
-      class="h-full bg-blue-600 rounded-full transition-all duration-300"
+      class="h-full progress-bar rounded-full transition-all duration-300"
       style="width: {percentage}%"
     />
   </div>

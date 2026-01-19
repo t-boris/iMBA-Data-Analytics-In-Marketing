@@ -37,14 +37,14 @@
       class="w-full text-left"
       disabled={!example}
     >
-      <h4 class="font-semibold text-slate-900">{term}</h4>
-      <p class="mt-1 text-slate-600">{definition}</p>
+      <h4 class="font-semibold" style="color: var(--color-text-primary);">{term}</h4>
+      <p class="mt-1" style="color: var(--color-text-secondary);">{definition}</p>
     </button>
 
     {#if expanded && example}
-      <div transition:fade={{ duration: 200 }} class="mt-4 pt-4 border-t border-slate-200">
-        <p class="text-sm text-slate-500 font-medium">Example:</p>
-        <p class="mt-1 text-slate-700">{example}</p>
+      <div transition:fade={{ duration: 200 }} class="mt-4 pt-4 concept-card-divider">
+        <p class="text-sm font-medium" style="color: var(--color-text-muted);">Example:</p>
+        <p class="mt-1" style="color: var(--color-text-secondary);">{example}</p>
       </div>
     {/if}
   </Card>
