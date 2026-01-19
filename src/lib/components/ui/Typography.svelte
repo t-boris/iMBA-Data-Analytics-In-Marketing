@@ -23,7 +23,8 @@
     code: 'code'
   };
 
-  const tag = as || tags[variant];
+  // Use $derived for reactive tag computation based on props
+  const tag = $derived(as || tags[variant]);
 </script>
 
 <svelte:element this={tag} class="{variant} {className}">
