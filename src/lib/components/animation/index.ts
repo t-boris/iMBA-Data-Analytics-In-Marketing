@@ -25,6 +25,31 @@ export interface SequenceStep {
   stagger?: number;
 }
 
+// Step-by-step explanation types
+import type { DiagramData } from '$lib/components/diagrams';
+
+export interface Annotation {
+  targetId: string; // node/edge ID
+  text: string;
+  position: 'top' | 'bottom' | 'left' | 'right';
+}
+
+export interface ExplanationStep {
+  id: string;
+  title: string;
+  description: string; // Markdown-like text
+  diagram: DiagramData; // State of diagram at this step
+  highlights?: string[]; // IDs to highlight
+  annotations?: Annotation[];
+}
+
+export interface ExplanationConfig {
+  title: string;
+  steps: ExplanationStep[];
+  width?: number;
+  height?: number;
+}
+
 // GSAP context helpers
 export {
   createTimeline,
