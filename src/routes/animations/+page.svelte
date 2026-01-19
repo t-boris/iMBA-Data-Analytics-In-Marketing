@@ -1,9 +1,33 @@
 <script lang="ts">
   import { Container, Section, Typography, Card } from '$lib/components/ui';
-  import { AnimationTimeline, PlaybackControls, AnimatedCausalDiagram } from '$lib/components/animation';
-  import type { AnimationStep, AnimationSequence } from '$lib/components/animation';
+  import {
+    AnimationTimeline,
+    PlaybackControls,
+    AnimatedCausalDiagram,
+    StepExplanation,
+    createConfoundingExplanation,
+    createRCTExplanation,
+    createTreatmentEffectExplanation
+  } from '$lib/components/animation';
+  import type { AnimationStep, AnimationSequence, ExplanationStep } from '$lib/components/animation';
   import type { DiagramData } from '$lib/components/diagrams';
   import { gsap } from 'gsap';
+
+  // Get preset explanations
+  const confoundingExplanation = createConfoundingExplanation();
+  const rctExplanation = createRCTExplanation();
+  const treatmentEffectExplanation = createTreatmentEffectExplanation();
+
+  // Selected explanation for demo selector
+  let selectedExplanation = $state<'confounding' | 'rct' | 'treatmentEffect'>('confounding');
+
+  let currentExplanation = $derived.by(() => {
+    switch (selectedExplanation) {
+      case 'rct': return { title: 'Randomized Controlled Trials', steps: rctExplanation };
+      case 'treatmentEffect': return { title: 'Understanding Treatment Effects', steps: treatmentEffectExplanation };
+      default: return { title: 'What is a Confounder?', steps: confoundingExplanation };
+    }
+  });
 
   // Simple counter animation demo
   let counterValue = $state(0);
@@ -206,6 +230,68 @@
     <Typography variant="body" class="text-slate-600 dark:text-slate-400 mb-8">
       Demonstrating GSAP-powered step-by-step animations for educational content.
     </Typography>
+
+    <!-- FEATURED: Step-by-Step Explanation Component -->
+    <div class="mb-12">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">NEW</span>
+        <Typography variant="h2">Interactive Step-by-Step Explanations</Typography>
+      </div>
+      <Typography variant="body" class="text-slate-600 dark:text-slate-400 mb-6">
+        The "3Blue1Brown style" animated explanation component. Select a topic and step through
+        the visual explanation with synchronized text and diagram highlighting.
+      </Typography>
+
+      <!-- Topic selector -->
+      <div class="flex gap-2 mb-6">
+        <button
+          onclick={() => selectedExplanation = 'confounding'}
+          class="px-4 py-2 rounded-lg transition-colors font-medium {
+            selectedExplanation === 'confounding'
+              ? 'bg-blue-600 text-white'
+              : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-600'
+          }"
+        >
+          Confounding
+        </button>
+        <button
+          onclick={() => selectedExplanation = 'rct'}
+          class="px-4 py-2 rounded-lg transition-colors font-medium {
+            selectedExplanation === 'rct'
+              ? 'bg-blue-600 text-white'
+              : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-600'
+          }"
+        >
+          RCTs
+        </button>
+        <button
+          onclick={() => selectedExplanation = 'treatmentEffect'}
+          class="px-4 py-2 rounded-lg transition-colors font-medium {
+            selectedExplanation === 'treatmentEffect'
+              ? 'bg-blue-600 text-white'
+              : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-600'
+          }"
+        >
+          Treatment Effects
+        </button>
+      </div>
+
+      <!-- StepExplanation component -->
+      {#key selectedExplanation}
+        <StepExplanation
+          title={currentExplanation.title}
+          steps={currentExplanation.steps}
+          width={420}
+          height={240}
+          layout="horizontal"
+          class="max-w-4xl"
+        />
+      {/key}
+    </div>
+
+    <hr class="border-slate-200 dark:border-slate-700 my-12" />
+
+    <Typography variant="h2" class="mb-6">Additional Animation Demos</Typography>
 
     <!-- Demo 1: Simple Counter Animation -->
     <Card class="mb-8">
@@ -465,6 +551,21 @@
     <Card class="mt-8">
       <Typography variant="h3" class="mb-4">Animation Components API</Typography>
       <div class="space-y-4 text-sm">
+        <div class="p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+          <code class="text-blue-600 dark:text-blue-400 font-mono font-bold">StepExplanation</code>
+          <span class="ml-2 text-xs bg-blue-600 text-white px-1.5 py-0.5 rounded">NEW</span>
+          <p class="text-slate-600 dark:text-slate-400 mt-1">
+            Props: <code>title</code>, <code>steps</code> (ExplanationStep[]), <code>width</code>, <code>height</code>, <code>layout</code> (horizontal|vertical)
+            <br />
+            Features: Play/pause controls, step navigation, keyboard shortcuts, auto-play
+          </p>
+        </div>
+        <div class="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
+          <code class="text-blue-600 dark:text-blue-400 font-mono">DiagramAnnotation</code>
+          <p class="text-slate-600 dark:text-slate-400 mt-1">
+            Props: <code>text</code>, <code>targetX</code>, <code>targetY</code>, <code>position</code> (top|bottom|left|right), <code>canvasWidth</code>, <code>canvasHeight</code>
+          </p>
+        </div>
         <div class="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
           <code class="text-blue-600 dark:text-blue-400 font-mono">AnimatedNode</code>
           <p class="text-slate-600 dark:text-slate-400 mt-1">
@@ -483,6 +584,31 @@
             Props: <code>data</code>, <code>sequence</code>, <code>autoPlay</code>
             <br />
             Methods: <code>play()</code>, <code>reset()</code>, <code>highlightElements()</code>, <code>clearHighlights()</code>
+          </p>
+        </div>
+      </div>
+    </Card>
+
+    <!-- Presets Reference -->
+    <Card class="mt-4">
+      <Typography variant="h3" class="mb-4">Explanation Presets</Typography>
+      <div class="space-y-4 text-sm">
+        <div class="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
+          <code class="text-green-600 dark:text-green-400 font-mono">createConfoundingExplanation()</code>
+          <p class="text-slate-600 dark:text-slate-400 mt-1">
+            5-step explanation of confounding bias and spurious correlation
+          </p>
+        </div>
+        <div class="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
+          <code class="text-green-600 dark:text-green-400 font-mono">createRCTExplanation()</code>
+          <p class="text-slate-600 dark:text-slate-400 mt-1">
+            4-step explanation of randomized controlled trials and why they work
+          </p>
+        </div>
+        <div class="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
+          <code class="text-green-600 dark:text-green-400 font-mono">createTreatmentEffectExplanation()</code>
+          <p class="text-slate-600 dark:text-slate-400 mt-1">
+            4-step explanation of potential outcomes and the fundamental problem of causal inference
           </p>
         </div>
       </div>
