@@ -47,9 +47,9 @@ const confoundingSection: ContentSection = {
 
 const iceCreamDiagram: DiagramData = {
 	nodes: [
-		{ id: 'ice-cream', label: 'Ice Cream Sales', type: 'treatment', x: 80, y: 140 },
-		{ id: 'drowning', label: 'Drowning Deaths', type: 'outcome', x: 340, y: 140 },
-		{ id: 'summer', label: 'Summer Heat', type: 'confounder', x: 210, y: 40 }
+		{ id: 'ice-cream', label: 'Ice Cream Sales', type: 'treatment', x: 60, y: 120 },
+		{ id: 'drowning', label: 'Drowning Deaths', type: 'outcome', x: 360, y: 120 },
+		{ id: 'summer', label: 'Summer Heat', type: 'confounder', x: 210, y: 20 }
 	],
 	edges: [
 		{ id: 's-i', source: 'summer', target: 'ice-cream' },
@@ -78,7 +78,7 @@ const selectionBiasSteps: ExplanationStep[] = [
 			'Imagine we want to study the effect of a new marketing campaign on customer spending. We have a population of potential customers with varying levels of engagement.',
 		diagram: {
 			nodes: [
-				{ id: 'population', label: 'All Customers', type: 'variable', x: 210, y: 120 }
+				{ id: 'population', label: 'All Customers', type: 'variable', x: 210, y: 60 }
 			],
 			edges: []
 		},
@@ -91,10 +91,10 @@ const selectionBiasSteps: ExplanationStep[] = [
 			'Now, customers who are already highly engaged are more likely to sign up for marketing emails. This creates selection bias - treatment assignment is not random!',
 		diagram: {
 			nodes: [
-				{ id: 'population', label: 'All Customers', type: 'variable', x: 210, y: 40 },
-				{ id: 'engagement', label: 'Engagement', type: 'confounder', x: 210, y: 120 },
-				{ id: 'emails', label: 'Email Signup', type: 'treatment', x: 80, y: 200 },
-				{ id: 'no-emails', label: 'No Emails', type: 'control', x: 340, y: 200 }
+				{ id: 'population', label: 'All Customers', type: 'variable', x: 210, y: 10 },
+				{ id: 'engagement', label: 'Engagement', type: 'confounder', x: 210, y: 60 },
+				{ id: 'emails', label: 'Email Signup', type: 'treatment', x: 60, y: 120 },
+				{ id: 'no-emails', label: 'No Emails', type: 'control', x: 360, y: 120 }
 			],
 			edges: [
 				{ id: 'p-e', source: 'population', target: 'engagement' },
@@ -112,9 +112,9 @@ const selectionBiasSteps: ExplanationStep[] = [
 			'If we simply compare email subscribers to non-subscribers, we\'re comparing highly engaged customers to less engaged ones. Any difference in spending might be due to engagement, not the emails!',
 		diagram: {
 			nodes: [
-				{ id: 'engagement', label: 'Engagement', type: 'confounder', x: 210, y: 60 },
-				{ id: 'emails', label: 'Email Signup', type: 'treatment', x: 80, y: 180 },
-				{ id: 'spending', label: 'Spending', type: 'outcome', x: 340, y: 180 }
+				{ id: 'engagement', label: 'Engagement', type: 'confounder', x: 210, y: 20 },
+				{ id: 'emails', label: 'Email Signup', type: 'treatment', x: 60, y: 120 },
+				{ id: 'spending', label: 'Spending', type: 'outcome', x: 360, y: 120 }
 			],
 			edges: [
 				{ id: 'e-em', source: 'engagement', target: 'emails' },
@@ -134,9 +134,9 @@ const selectionBiasSteps: ExplanationStep[] = [
 			'Selection bias occurs when the process by which units select into treatment is related to the outcome. To get a true causal effect, we need methods that account for or eliminate this selection process - like randomized experiments or careful statistical adjustments.',
 		diagram: {
 			nodes: [
-				{ id: 'engagement', label: 'Engagement', type: 'confounder', x: 210, y: 60 },
-				{ id: 'emails', label: 'Email Signup', type: 'treatment', x: 80, y: 180 },
-				{ id: 'spending', label: 'Spending', type: 'outcome', x: 340, y: 180 }
+				{ id: 'engagement', label: 'Engagement', type: 'confounder', x: 210, y: 20 },
+				{ id: 'emails', label: 'Email Signup', type: 'treatment', x: 60, y: 120 },
+				{ id: 'spending', label: 'Spending', type: 'outcome', x: 360, y: 120 }
 			],
 			edges: [
 				{ id: 'e-em', source: 'engagement', target: 'emails' },
@@ -170,11 +170,8 @@ const takeawaySection: ContentSection = {
 In this course, you'll learn a toolkit of methods for establishing causal relationships:
 
 1. **Randomized Experiments (A/B Tests)** - The gold standard. By randomly assigning treatment, we eliminate confounding by design.
-
 2. **Matching Methods** - When randomization isn't possible, we can try to create comparable groups by matching on observed characteristics.
-
 3. **Instrumental Variables** - Using external sources of variation that affect treatment but not outcomes directly.
-
 4. **Difference-in-Differences** - Comparing changes over time between treated and untreated groups.
 
 Each method has its strengths, limitations, and assumptions. Understanding when and how to apply them is essential for any data-driven marketer or analyst.`

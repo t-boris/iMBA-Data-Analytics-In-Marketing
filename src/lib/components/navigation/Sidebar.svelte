@@ -92,6 +92,45 @@
       {/if}
     </nav>
 
+    <!-- Study Tools -->
+    <div class="px-2 py-4 border-t border-slate-200 dark:border-slate-700">
+      <h3 class="px-3 mb-2 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+        Study Tools
+      </h3>
+      <ul class="space-y-1">
+        <li>
+          <a
+            href="/explore"
+            onclick={onClose}
+            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+          >
+            <span class="text-lg">🔬</span>
+            <span>Interactive Explore</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/glossary"
+            onclick={onClose}
+            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+          >
+            <span class="text-lg">📖</span>
+            <span>Glossary</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/exam-prep"
+            onclick={onClose}
+            class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+          >
+            <span class="text-lg">📝</span>
+            <span>Exam Prep</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
     <!-- Sidebar footer -->
     <div class="px-4 py-4 border-t border-slate-200 dark:border-slate-700">
       <div class="text-xs text-slate-500 dark:text-slate-400">

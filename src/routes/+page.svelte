@@ -141,6 +141,68 @@
 		</Container>
 	</section>
 
+	<!-- Study Tools Section -->
+	<section class="py-12 mt-12">
+		<Container size="lg">
+			<h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-8">
+				Study Tools
+			</h2>
+
+			<Grid cols={3} gap="default">
+				<a href="/explore" class="block group">
+					<Card padding="lg" hover variant="default">
+						<div class="text-center">
+							<div class="text-4xl mb-4">🔬</div>
+							<h3 class="text-lg font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-2">
+								Interactive Explore
+							</h3>
+							<p class="text-sm text-slate-600 dark:text-slate-400 mb-4">
+								Hands-on simulations to understand confounding bias and compare causal methods.
+							</p>
+							<span class="text-sm text-blue-600 dark:text-blue-400 group-hover:underline">
+								Start exploring →
+							</span>
+						</div>
+					</Card>
+				</a>
+
+				<a href="/glossary" class="block group">
+					<Card padding="lg" hover variant="default">
+						<div class="text-center">
+							<div class="text-4xl mb-4">📖</div>
+							<h3 class="text-lg font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-2">
+								Glossary
+							</h3>
+							<p class="text-sm text-slate-600 dark:text-slate-400 mb-4">
+								Searchable dictionary of key concepts with visual definitions and diagrams.
+							</p>
+							<span class="text-sm text-blue-600 dark:text-blue-400 group-hover:underline">
+								Browse concepts →
+							</span>
+						</div>
+					</Card>
+				</a>
+
+				<a href="/exam-prep" class="block group">
+					<Card padding="lg" hover variant="default">
+						<div class="text-center">
+							<div class="text-4xl mb-4">📝</div>
+							<h3 class="text-lg font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-2">
+								Exam Prep
+							</h3>
+							<p class="text-sm text-slate-600 dark:text-slate-400 mb-4">
+								100 flashcard questions to test your knowledge with self-assessment tracking.
+							</p>
+							<span class="text-sm text-blue-600 dark:text-blue-400 group-hover:underline">
+								Start practicing →
+							</span>
+						</div>
+					</Card>
+				</a>
+			</Grid>
+		</Container>
+	</section>
+
 	<!-- Features Section -->
 	<section class="py-16 mt-12 bg-slate-100 dark:bg-slate-800/50 -mx-6 px-6">
 		<Container size="lg">

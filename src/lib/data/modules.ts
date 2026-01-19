@@ -31,8 +31,8 @@ const module1Lectures: Lecture[] = [
     description: 'Neyman, Rubin, Pearl, and the Nobel laureates (Angrist, Card, Imbens)',
     duration: '15 min read',
     hasVisualization: true,
-    hasAnimation: false,
-    status: 'coming-soon'
+    hasAnimation: true,
+    status: 'ready'
   },
   {
     id: '1-3',
@@ -44,7 +44,7 @@ const module1Lectures: Lecture[] = [
     duration: '25 min read',
     hasVisualization: true,
     hasAnimation: true,
-    status: 'coming-soon'
+    status: 'ready'
   },
   {
     id: '1-4',
@@ -56,7 +56,7 @@ const module1Lectures: Lecture[] = [
     duration: '30 min read',
     hasVisualization: true,
     hasAnimation: true,
-    status: 'coming-soon'
+    status: 'ready'
   },
   {
     id: '1-5',
@@ -68,7 +68,7 @@ const module1Lectures: Lecture[] = [
     duration: '25 min read',
     hasVisualization: true,
     hasAnimation: true,
-    status: 'coming-soon'
+    status: 'ready'
   },
   {
     id: '1-6',
@@ -80,7 +80,7 @@ const module1Lectures: Lecture[] = [
     duration: '25 min read',
     hasVisualization: true,
     hasAnimation: true,
-    status: 'coming-soon'
+    status: 'ready'
   },
   {
     id: '1-7',
@@ -92,7 +92,7 @@ const module1Lectures: Lecture[] = [
     duration: '20 min read',
     hasVisualization: true,
     hasAnimation: false,
-    status: 'coming-soon'
+    status: 'ready'
   },
   {
     id: '1-8',
@@ -104,7 +104,7 @@ const module1Lectures: Lecture[] = [
     duration: '30 min read',
     hasVisualization: true,
     hasAnimation: false,
-    status: 'coming-soon'
+    status: 'ready'
   }
 ];
 

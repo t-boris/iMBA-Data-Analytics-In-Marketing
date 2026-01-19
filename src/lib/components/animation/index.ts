@@ -80,5 +80,8 @@ export {
   createConfoundingExplanation,
   createRCTExplanation,
   createTreatmentEffectExplanation,
+  createMatchingExplanation,
+  createDIDExplanation,
+  createIVExplanation,
   presets
 } from './presets';

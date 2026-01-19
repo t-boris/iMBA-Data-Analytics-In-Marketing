@@ -6,15 +6,46 @@
 	import { getNextLecture, getPreviousLecture } from '$lib/data/modules';
 	import type { Module, Lecture } from '$lib/types/module';
 	import type { LectureContent, ContentSection } from '$lib/content/types';
+	import { marked } from 'marked';
+	import hljs from 'highlight.js/lib/core';
+	import python from 'highlight.js/lib/languages/python';
+	import bash from 'highlight.js/lib/languages/bash';
+
+	// Register languages for syntax highlighting
+	hljs.registerLanguage('python', python);
+	hljs.registerLanguage('bash', bash);
+
+	// Configure marked with syntax highlighting
+	marked.setOptions({
+		breaks: true,
+		gfm: true
+	});
+
+	// Custom renderer for code blocks with syntax highlighting
+	const renderer = new marked.Renderer();
+	renderer.code = ({ text, lang }: { text: string; lang?: string }) => {
+		if (lang && hljs.getLanguage(lang)) {
+			const highlighted = hljs.highlight(text, { language: lang }).value;
+			return `<pre><code class="hljs language-${lang}">${highlighted}</code></pre>`;
+		}
+		return `<pre><code>${text}</code></pre>`;
+	};
+
+	// Helper to render markdown content (synchronous)
+	function renderMarkdown(content: string): string {
+		return marked.parse(content, { async: false, renderer }) as string;
+	}
 
 	let { data } = $props();
-	const module: Module = data.module;
-	const lecture: Lecture = data.lecture;
-	const content: LectureContent | null = data.content;
 
-	// Navigation helpers
-	const prevLecture = getPreviousLecture(module.id, lecture.id);
-	const nextLecture = getNextLecture(module.id, lecture.id);
+	// Use $derived for reactivity when navigating between lectures
+	const module = $derived(data.module as Module);
+	const lecture = $derived(data.lecture as Lecture);
+	const content = $derived(data.content as LectureContent | null);
+
+	// Navigation helpers - must be derived to update on navigation
+	const prevLecture = $derived(getPreviousLecture(module.id, lecture.id));
+	const nextLecture = $derived(getNextLecture(module.id, lecture.id));
 
 	// Get status badge styling
 	function getStatusBadge(status: Lecture['status']): { variant: string; label: string } {
@@ -29,7 +60,7 @@
 		}
 	}
 
-	const statusBadge = getStatusBadge(lecture.status);
+	const statusBadge = $derived(getStatusBadge(lecture.status));
 </script>
 
 <div transition:fly={{ y: 20, duration: 300 }}>
@@ -116,11 +147,7 @@
 										</h2>
 									{/if}
 									{#if section.content}
-										{#each section.content.split('\n\n') as paragraph}
-											<p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-												{paragraph}
-											</p>
-										{/each}
+										{@html renderMarkdown(section.content)}
 									{/if}
 								</div>
 
@@ -154,10 +181,10 @@
 										</div>
 									{/if}
 									{#if section.content}
-										<p class="text-slate-600 dark:text-slate-300 mt-4 text-center max-w-2xl mx-auto">
-											{section.content}
-										</p>
-									{/if}
+									<div class="prose prose-slate dark:prose-invert mt-4 max-w-2xl mx-auto">
+										{@html renderMarkdown(section.content)}
+									</div>
+								{/if}
 								</div>
 							{/if}
 						</div>
@@ -231,3 +258,82 @@
 		</Container>
 	</section>
 </div>
+
+<style>
+	/* Prose content styling for markdown */
+	:global(.content-section .prose p) {
+		margin-bottom: 1rem;
+	}
+
+	:global(.content-section .prose p:last-child) {
+		margin-bottom: 0;
+	}
+
+	:global(.content-section .prose ol),
+	:global(.content-section ol) {
+		list-style: decimal outside !important;
+		padding-left: 2.5rem !important;
+		margin: 1rem 0 !important;
+	}
+
+	:global(.content-section .prose ul),
+	:global(.content-section ul) {
+		list-style: disc outside !important;
+		padding-left: 2.5rem !important;
+		margin: 1rem 0 !important;
+	}
+
+	:global(.content-section .prose li),
+	:global(.content-section li) {
+		display: list-item !important;
+		margin-bottom: 0.5rem !important;
+	}
+
+	:global(.content-section .prose strong) {
+		font-weight: 600;
+	}
+
+	/* Code block styling with syntax highlighting */
+	:global(.content-section pre) {
+		background-color: #1e293b !important;
+		border-radius: 0.5rem;
+		padding: 1rem;
+		overflow-x: auto;
+		margin: 1rem 0;
+	}
+
+	:global(.content-section pre code) {
+		font-family: 'JetBrains Mono', 'SF Mono', 'Menlo', 'Monaco', monospace;
+		font-size: 0.75rem;
+		line-height: 1.6;
+		color: #e2e8f0;
+		background: none !important;
+		padding: 0 !important;
+		border-radius: 0 !important;
+		display: block;
+	}
+
+	/* Inline code only */
+	:global(.content-section :not(pre) > code) {
+		background-color: #334155 !important;
+		padding: 0.125rem 0.375rem !important;
+		border-radius: 0.25rem !important;
+		font-size: 0.875rem;
+		color: #f8fafc;
+	}
+
+	/* Highlight.js syntax colors */
+	:global(.hljs-keyword) { color: #c792ea; }
+	:global(.hljs-string) { color: #c3e88d; }
+	:global(.hljs-number) { color: #f78c6c; }
+	:global(.hljs-function) { color: #82aaff; }
+	:global(.hljs-title) { color: #82aaff; }
+	:global(.hljs-params) { color: #e2e8f0; }
+	:global(.hljs-comment) { color: #697098; font-style: italic; }
+	:global(.hljs-built_in) { color: #ffcb6b; }
+	:global(.hljs-class) { color: #ffcb6b; }
+	:global(.hljs-attr) { color: #ffcb6b; }
+	:global(.hljs-variable) { color: #f07178; }
+	:global(.hljs-operator) { color: #89ddff; }
+	:global(.hljs-punctuation) { color: #89ddff; }
+</style>

@@ -6,7 +6,7 @@
 		class: className = '',
 		children
 	}: {
-		size?: 'sm' | 'default' | 'lg' | 'full';
+		size?: 'sm' | 'default' | 'lg' | 'xl' | 'full';
 		class?: string;
 		children: Snippet;
 	} = $props();
@@ -15,6 +15,7 @@
 		sm: 'max-w-2xl',
 		default: 'max-w-4xl',
 		lg: 'max-w-6xl',
+		xl: 'max-w-7xl',
 		full: 'max-w-full'
 	};
 </script>

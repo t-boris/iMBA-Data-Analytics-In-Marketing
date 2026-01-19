@@ -8,6 +8,7 @@
     position = 'top',
     canvasWidth = 500,
     canvasHeight = 280,
+    padding = 40,
     class: className = ''
   }: {
     text: string;
@@ -16,8 +17,14 @@
     position: 'top' | 'bottom' | 'left' | 'right';
     canvasWidth?: number;
     canvasHeight?: number;
+    padding?: number;
     class?: string;
   } = $props();
+
+  // Adjust coordinates to account for canvas padding
+  // Nodes are rendered inside a translate(padding, padding) transform
+  const adjustedX = $derived(targetX + padding);
+  const adjustedY = $derived(targetY + padding);
 
   // Annotation dimensions
   const annotationWidth = 160;
@@ -26,33 +33,45 @@
   const nodeRadius = 20; // Match the node radius from AnimatedNode
 
   // Calculate annotation box position based on position prop
+  // Use adjustedX/Y which account for canvas padding
+  // Clamp to keep within canvas bounds
   let annotationX = $derived.by(() => {
+    let x: number;
     switch (position) {
       case 'left':
-        return targetX - nodeRadius - arrowLength - annotationWidth;
+        x = adjustedX - nodeRadius - arrowLength - annotationWidth;
+        break;
       case 'right':
-        return targetX + nodeRadius + arrowLength;
+        x = adjustedX + nodeRadius + arrowLength;
+        break;
       case 'top':
       case 'bottom':
       default:
-        return targetX - annotationWidth / 2;
+        x = adjustedX - annotationWidth / 2;
     }
+    // Clamp to canvas bounds with small margin
+    return Math.max(4, Math.min(x, canvasWidth - annotationWidth - 4));
   });
 
   let annotationY = $derived.by(() => {
+    let y: number;
     switch (position) {
       case 'top':
-        return targetY - nodeRadius - arrowLength - annotationHeight;
+        y = adjustedY - nodeRadius - arrowLength - annotationHeight;
+        break;
       case 'bottom':
-        return targetY + nodeRadius + arrowLength;
+        y = adjustedY + nodeRadius + arrowLength;
+        break;
       case 'left':
       case 'right':
       default:
-        return targetY - annotationHeight / 2;
+        y = adjustedY - annotationHeight / 2;
     }
+    // Clamp to canvas bounds with small margin
+    return Math.max(4, Math.min(y, canvasHeight - annotationHeight - 4));
   });
 
-  // Calculate arrow path
+  // Calculate arrow path using adjusted coordinates
   let arrowPath = $derived.by(() => {
     const boxX = annotationX;
     const boxY = annotationY;
@@ -62,16 +81,16 @@
     switch (position) {
       case 'top':
         // Arrow points down from bottom center of box to target
-        return `M ${boxCenterX} ${boxY + annotationHeight} L ${targetX} ${targetY - nodeRadius}`;
+        return `M ${boxCenterX} ${boxY + annotationHeight} L ${adjustedX} ${adjustedY - nodeRadius}`;
       case 'bottom':
         // Arrow points up from top center of box to target
-        return `M ${boxCenterX} ${boxY} L ${targetX} ${targetY + nodeRadius}`;
+        return `M ${boxCenterX} ${boxY} L ${adjustedX} ${adjustedY + nodeRadius}`;
       case 'left':
         // Arrow points right from right edge of box to target
-        return `M ${boxX + annotationWidth} ${boxCenterY} L ${targetX - nodeRadius} ${targetY}`;
+        return `M ${boxX + annotationWidth} ${boxCenterY} L ${adjustedX - nodeRadius} ${adjustedY}`;
       case 'right':
         // Arrow points left from left edge of box to target
-        return `M ${boxX} ${boxCenterY} L ${targetX + nodeRadius} ${targetY}`;
+        return `M ${boxX} ${boxCenterY} L ${adjustedX + nodeRadius} ${adjustedY}`;
       default:
         return '';
     }

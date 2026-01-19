@@ -27,13 +27,13 @@
       </a>
     </div>
 
-    <!-- Desktop Navigation (placeholder - will connect to data in 03-02) -->
+    <!-- Desktop Navigation -->
     <nav class="hidden lg:flex items-center gap-1">
-      <a href="/modules" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-        Modules
-      </a>
       <a href="/glossary" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
         Glossary
+      </a>
+      <a href="/explore" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+        Explore
       </a>
       <a href="/exam-prep" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
         Exam Prep

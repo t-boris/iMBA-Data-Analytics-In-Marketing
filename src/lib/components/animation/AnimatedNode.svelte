@@ -116,7 +116,8 @@
   role="button"
   tabindex="0"
   aria-label="{node.label} ({node.type})"
-  style="outline: none; opacity: {initialOpacity}; transform: scale({initialScale});"
+  style="outline: none;"
+  opacity={initialOpacity}
 >
   <!-- Node circle -->
   <circle

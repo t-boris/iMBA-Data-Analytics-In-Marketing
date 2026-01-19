@@ -31,17 +31,57 @@ export const load: PageLoad = async ({ params }) => {
 		throw error(404, 'Lecture not found');
 	}
 
-	// Dynamically import lecture content
+	// Import lecture content based on module and lecture slug
 	let content = null;
 	try {
-		// Module 1 content is in $lib/content/module1/
+		// Module 1 content - import available lecture content
 		if (module.id === '1') {
-			const contentModule = await import(`$lib/content/module1/${params.lecture}.ts`);
-			content = contentModule.lectureContent;
+			switch (params.lecture) {
+				case 'introduction': {
+					const mod = await import('$lib/content/module1/introduction');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'key-thinkers': {
+					const mod = await import('$lib/content/module1/key-thinkers');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'randomized-experiments': {
+					const mod = await import('$lib/content/module1/randomized-experiments');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'matching-methods': {
+					const mod = await import('$lib/content/module1/matching-methods');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'instrumental-variables': {
+					const mod = await import('$lib/content/module1/instrumental-variables');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'difference-in-differences': {
+					const mod = await import('$lib/content/module1/difference-in-differences');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'field-experiments': {
+					const mod = await import('$lib/content/module1/field-experiments');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'python-demo-did': {
+					const mod = await import('$lib/content/module1/python-demo-did');
+					content = mod.lectureContent;
+					break;
+				}
+			}
 		}
 	} catch (e) {
 		// Content not yet available - that's fine for coming-soon lectures
-		console.log(`Content not available for lecture: ${params.lecture}`);
+		console.log(`Content not available for lecture: ${params.lecture}`, e);
 	}
 
 	return {
