@@ -70,3 +70,7 @@ export { default as PlaybackControls } from './PlaybackControls.svelte';
 export { default as AnimatedNode } from './AnimatedNode.svelte';
 export { default as AnimatedEdge } from './AnimatedEdge.svelte';
 export { default as AnimatedCausalDiagram } from './AnimatedCausalDiagram.svelte';
+
+// Step-by-step explanation components
+export { default as StepExplanation } from './StepExplanation.svelte';
+export { default as DiagramAnnotation } from './DiagramAnnotation.svelte';
