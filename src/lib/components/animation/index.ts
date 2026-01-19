@@ -74,3 +74,11 @@ export { default as AnimatedCausalDiagram } from './AnimatedCausalDiagram.svelte
 // Step-by-step explanation components
 export { default as StepExplanation } from './StepExplanation.svelte';
 export { default as DiagramAnnotation } from './DiagramAnnotation.svelte';
+
+// Explanation presets
+export {
+  createConfoundingExplanation,
+  createRCTExplanation,
+  createTreatmentEffectExplanation,
+  presets
+} from './presets';
