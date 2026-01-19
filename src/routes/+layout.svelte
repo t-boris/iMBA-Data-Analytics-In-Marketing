@@ -2,6 +2,7 @@
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import { Header, Sidebar } from '$lib/components/navigation';
+	import { modules } from '$lib/data/modules';
 
 	let { children } = $props();
 
@@ -15,18 +16,6 @@
 	function closeMobileMenu() {
 		isMobileMenuOpen = false;
 	}
-
-	// Placeholder module data (will be replaced by real data in 03-02)
-	const modules = [
-		{ id: '1', name: 'Causal Analysis', lectures: 8 },
-		{ id: '2', name: 'Module 2', lectures: 0 },
-		{ id: '3', name: 'Module 3', lectures: 0 },
-		{ id: '4', name: 'Module 4', lectures: 0 },
-		{ id: '5', name: 'Module 5', lectures: 0 },
-		{ id: '6', name: 'Module 6', lectures: 0 },
-		{ id: '7', name: 'Module 7', lectures: 0 },
-		{ id: '8', name: 'Module 8', lectures: 0 }
-	];
 </script>
 
 <svelte:head>

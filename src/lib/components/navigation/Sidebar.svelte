@@ -1,12 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import { Button } from '$lib/components/ui';
-
-  interface Module {
-    id: string;
-    name: string;
-    lectures: number;
-  }
+  import type { Module } from '$lib/types/module';
 
   let {
     modules = [],
@@ -18,10 +12,11 @@
     onClose?: () => void;
   } = $props();
 
-  // Get current module ID from route for active highlighting
-  const currentModuleId = $derived.by(() => {
+  // Get current module slug from route for active highlighting
+  const currentModuleSlug = $derived.by(() => {
     const pathname = $page.url.pathname;
-    const match = pathname.match(/\/modules\/(\d+)/);
+    // Match /module/slug or /module/slug/lecture
+    const match = pathname.match(/\/module\/([^/]+)/);
     return match ? match[1] : null;
   });
 </script>
@@ -57,28 +52,33 @@
       {:else}
         <ul class="space-y-1">
           {#each modules as module (module.id)}
-            {@const isActive = currentModuleId === module.id}
+            {@const isActive = currentModuleSlug === module.slug}
+            {@const isComingSoon = module.status === 'coming-soon'}
             <li>
               <a
-                href="/modules/{module.id}"
+                href="/module/{module.slug}"
                 onclick={onClose}
                 class="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors {isActive
                   ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
-                  : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}"
+                  : isComingSoon
+                    ? 'text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
+                    : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}"
               >
                 <div class="flex items-center gap-3">
                   <span class="flex h-6 w-6 items-center justify-center rounded-md text-xs font-semibold {isActive
                     ? 'bg-blue-600 text-white'
-                    : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400'}">
-                    {module.id}
+                    : isComingSoon
+                      ? 'bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500'
+                      : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400'}">
+                    {module.order}
                   </span>
                   <span class="truncate">{module.name}</span>
                 </div>
 
                 <!-- Lecture count badge / progress indicator -->
-                {#if module.lectures > 0}
+                {#if module.lectures.length > 0}
                   <span class="text-xs text-slate-500 dark:text-slate-400">
-                    {module.lectures} lectures
+                    {module.lectures.length} lectures
                   </span>
                 {:else}
                   <span class="text-xs text-slate-400 dark:text-slate-500 italic">
