@@ -16,9 +16,9 @@
   } = $props();
 
   const variantClasses = {
-    default: 'border',
-    outlined: 'bg-transparent border-2',
-    elevated: 'shadow-lg'
+    default: 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700',
+    outlined: 'bg-transparent border-2 border-slate-300 dark:border-slate-600',
+    elevated: 'bg-white dark:bg-slate-800 shadow-lg'
   };
 
   const paddingClasses = {
@@ -31,6 +31,6 @@
   const hoverClass = hover ? 'transition-shadow hover:shadow-md cursor-pointer' : '';
 </script>
 
-<div class="rounded-lg card-base {variantClasses[variant]} {paddingClasses[padding]} {hoverClass} {className}">
+<div class="rounded-lg {variantClasses[variant]} {paddingClasses[padding]} {hoverClass} {className}">
   {@render children()}
 </div>

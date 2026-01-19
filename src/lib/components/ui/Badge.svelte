@@ -14,13 +14,13 @@
   } = $props();
 
   const variantClasses = {
-    default: 'badge-default',
-    treatment: 'badge-treatment',
-    control: 'badge-control',
-    confounder: 'badge-confounder',
-    outcome: 'badge-outcome',
-    success: 'badge-success',
-    warning: 'badge-warning'
+    default: 'bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300',
+    treatment: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400',
+    control: 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400',
+    confounder: 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400',
+    outcome: 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400',
+    success: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400',
+    warning: 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400'
   };
 
   const sizeClasses = {

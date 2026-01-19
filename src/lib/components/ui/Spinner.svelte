@@ -15,7 +15,7 @@
 </script>
 
 <svg
-  class="animate-spin text-blue-600 {sizeClasses[size]} {className}"
+  class="animate-spin text-blue-600 dark:text-blue-400 {sizeClasses[size]} {className}"
   xmlns="http://www.w3.org/2000/svg"
   fill="none"
   viewBox="0 0 24 24"

@@ -82,8 +82,6 @@ body {
   font-family: var(--font-sans);
   font-size: var(--text-body);
   line-height: var(--leading-normal);
-  color: var(--color-text-secondary);
-  background-color: var(--color-surface);
 }
 
 /* Typography component classes */
