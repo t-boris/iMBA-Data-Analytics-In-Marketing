@@ -1,7 +1,8 @@
 <script lang="ts">
   import { Container, Section, Typography, Card } from '$lib/components/ui';
-  import { AnimationTimeline, PlaybackControls } from '$lib/components/animation';
-  import type { AnimationStep } from '$lib/components/animation';
+  import { AnimationTimeline, PlaybackControls, AnimatedCausalDiagram } from '$lib/components/animation';
+  import type { AnimationStep, AnimationSequence } from '$lib/components/animation';
+  import type { DiagramData } from '$lib/components/diagrams';
   import { gsap } from 'gsap';
 
   // Simple counter animation demo
@@ -114,6 +115,84 @@
     if (counterElement) {
       gsap.set(counterElement, { innerHTML: 0 });
     }
+  }
+
+  // Confounding diagram data
+  const confoundingData: DiagramData = {
+    nodes: [
+      { id: 'confounder', label: 'Confounder', type: 'confounder', x: 200, y: 40 },
+      { id: 'treatment', label: 'Treatment', type: 'treatment', x: 100, y: 140 },
+      { id: 'outcome', label: 'Outcome', type: 'outcome', x: 300, y: 140 }
+    ],
+    edges: [
+      { id: 'c-t', source: 'confounder', target: 'treatment' },
+      { id: 'c-o', source: 'confounder', target: 'outcome' },
+      { id: 't-o', source: 'treatment', target: 'outcome', label: 'Causal Effect?' }
+    ]
+  };
+
+  // Custom sequence for step-by-step confounding explanation
+  const confoundingSequence: AnimationSequence = {
+    steps: [
+      // Step 1: Show treatment
+      { targets: ['treatment'], animation: 'scaleIn', duration: 0.5 },
+      // Step 2: Show outcome
+      { targets: ['outcome'], animation: 'scaleIn', duration: 0.5 },
+      // Step 3: Show naive causal arrow
+      { targets: ['t-o'], animation: 'draw', duration: 0.6 },
+      // Step 4: Reveal confounder
+      { targets: ['confounder'], animation: 'scaleIn', duration: 0.5 },
+      // Step 5: Show confounding paths
+      { targets: ['c-t', 'c-o'], animation: 'draw', duration: 0.6, stagger: 0.3 }
+    ]
+  };
+
+  // Causal flow diagram
+  const causalFlowData: DiagramData = {
+    nodes: [
+      { id: 'x1', label: 'X1', type: 'variable', x: 60, y: 100 },
+      { id: 'x2', label: 'X2', type: 'variable', x: 160, y: 40 },
+      { id: 'x3', label: 'X3', type: 'variable', x: 160, y: 160 },
+      { id: 'y', label: 'Y', type: 'outcome', x: 280, y: 100 }
+    ],
+    edges: [
+      { id: 'x1-x2', source: 'x1', target: 'x2' },
+      { id: 'x1-x3', source: 'x1', target: 'x3' },
+      { id: 'x2-y', source: 'x2', target: 'y' },
+      { id: 'x3-y', source: 'x3', target: 'y' }
+    ]
+  };
+
+  // Treatment effect diagram
+  const treatmentEffectData: DiagramData = {
+    nodes: [
+      { id: 'treatment', label: 'Treatment', type: 'treatment', x: 80, y: 100 },
+      { id: 'control', label: 'Control', type: 'control', x: 80, y: 200 },
+      { id: 'outcome-t', label: 'Y(1)', type: 'outcome', x: 280, y: 100 },
+      { id: 'outcome-c', label: 'Y(0)', type: 'outcome', x: 280, y: 200 }
+    ],
+    edges: [
+      { id: 't-yt', source: 'treatment', target: 'outcome-t' },
+      { id: 'c-yc', source: 'control', target: 'outcome-c' },
+      { id: 'effect', source: 'outcome-t', target: 'outcome-c', label: 'ATE', style: 'dashed' }
+    ]
+  };
+
+  // References to animated diagrams
+  let confoundingDiagram: { play: () => void; reset: () => void; highlightElements: (n: string[], e: string[]) => void; clearHighlights: () => void };
+  let causalFlowDiagram: { play: () => void; reset: () => void; highlightElements: (n: string[], e: string[]) => void; clearHighlights: () => void };
+  let treatmentEffectDiagram: { play: () => void; reset: () => void; highlightElements: (n: string[], e: string[]) => void; clearHighlights: () => void };
+
+  // Highlight state for causal flow
+  let flowHighlightActive = $state(false);
+
+  function toggleFlowHighlight() {
+    if (flowHighlightActive) {
+      causalFlowDiagram?.clearHighlights();
+    } else {
+      causalFlowDiagram?.highlightElements(['x1', 'y'], ['x1-x2', 'x2-y']);
+    }
+    flowHighlightActive = !flowHighlightActive;
   }
 </script>
 
@@ -265,6 +344,147 @@
             </div>
           </div>
         {/each}
+      </div>
+    </Card>
+
+    <!-- Diagram Animation Section -->
+    <Typography variant="h2" class="mt-12 mb-6">Diagram Animations</Typography>
+
+    <!-- Demo 3: Confounding Diagram Animation -->
+    <Card class="mb-8">
+      <Typography variant="h3" class="mb-4">3. Confounding Diagram - Step by Step</Typography>
+      <Typography variant="body" class="text-slate-600 dark:text-slate-400 mb-4">
+        Watch how confounding is revealed: First we see treatment and outcome, then the hidden confounder emerges.
+      </Typography>
+
+      <div class="bg-slate-50 dark:bg-slate-900 rounded-lg p-4 mb-4">
+        <AnimatedCausalDiagram
+          bind:this={confoundingDiagram}
+          data={confoundingData}
+          sequence={confoundingSequence}
+          width={400}
+          height={200}
+          title="Confounding Bias"
+          description="The confounder creates spurious correlation"
+        />
+      </div>
+
+      <div class="flex gap-2">
+        <button
+          onclick={() => confoundingDiagram?.play()}
+          class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+        >
+          Play Animation
+        </button>
+        <button
+          onclick={() => confoundingDiagram?.reset()}
+          class="px-4 py-2 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-900 dark:text-white rounded-lg transition-colors"
+        >
+          Reset
+        </button>
+      </div>
+    </Card>
+
+    <!-- Demo 4: Causal Flow with Highlight -->
+    <Card class="mb-8">
+      <Typography variant="h3" class="mb-4">4. Causal Flow - Path Highlighting</Typography>
+      <Typography variant="body" class="text-slate-600 dark:text-slate-400 mb-4">
+        Toggle highlighting to trace the causal path from X1 to Y through X2.
+      </Typography>
+
+      <div class="bg-slate-50 dark:bg-slate-900 rounded-lg p-4 mb-4">
+        <AnimatedCausalDiagram
+          bind:this={causalFlowDiagram}
+          data={causalFlowData}
+          autoPlay={true}
+          width={350}
+          height={220}
+          title="Causal Flow"
+          description="Multiple paths from cause to effect"
+        />
+      </div>
+
+      <div class="flex gap-2">
+        <button
+          onclick={toggleFlowHighlight}
+          class="px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg transition-colors"
+        >
+          {flowHighlightActive ? 'Clear Highlight' : 'Highlight Path X1 → X2 → Y'}
+        </button>
+        <button
+          onclick={() => causalFlowDiagram?.play()}
+          class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+        >
+          Replay
+        </button>
+      </div>
+    </Card>
+
+    <!-- Demo 5: Treatment Effect Visualization -->
+    <Card class="mb-8">
+      <Typography variant="h3" class="mb-4">5. Treatment Effect Visualization</Typography>
+      <Typography variant="body" class="text-slate-600 dark:text-slate-400 mb-4">
+        Before and after: Treatment vs Control potential outcomes.
+      </Typography>
+
+      <div class="bg-slate-50 dark:bg-slate-900 rounded-lg p-4 mb-4">
+        <AnimatedCausalDiagram
+          bind:this={treatmentEffectDiagram}
+          data={treatmentEffectData}
+          autoPlay={true}
+          width={400}
+          height={280}
+          title="Average Treatment Effect"
+          description="Comparing potential outcomes Y(1) and Y(0)"
+        />
+      </div>
+
+      <div class="flex gap-2">
+        <button
+          onclick={() => treatmentEffectDiagram?.play()}
+          class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+        >
+          Replay Animation
+        </button>
+        <button
+          onclick={() => treatmentEffectDiagram?.highlightElements(['outcome-t', 'outcome-c'], ['effect'])}
+          class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"
+        >
+          Highlight Effect
+        </button>
+        <button
+          onclick={() => treatmentEffectDiagram?.clearHighlights()}
+          class="px-4 py-2 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-900 dark:text-white rounded-lg transition-colors"
+        >
+          Clear
+        </button>
+      </div>
+    </Card>
+
+    <!-- Animation API Reference -->
+    <Card class="mt-8">
+      <Typography variant="h3" class="mb-4">Animation Components API</Typography>
+      <div class="space-y-4 text-sm">
+        <div class="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
+          <code class="text-blue-600 dark:text-blue-400 font-mono">AnimatedNode</code>
+          <p class="text-slate-600 dark:text-slate-400 mt-1">
+            Props: <code>node</code>, <code>animate</code> (fadeIn|scaleIn|none), <code>highlight</code>, <code>delay</code>
+          </p>
+        </div>
+        <div class="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
+          <code class="text-blue-600 dark:text-blue-400 font-mono">AnimatedEdge</code>
+          <p class="text-slate-600 dark:text-slate-400 mt-1">
+            Props: <code>edge</code>, <code>sourceNode</code>, <code>targetNode</code>, <code>animate</code> (draw|fadeIn|none), <code>highlight</code>, <code>delay</code>
+          </p>
+        </div>
+        <div class="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
+          <code class="text-blue-600 dark:text-blue-400 font-mono">AnimatedCausalDiagram</code>
+          <p class="text-slate-600 dark:text-slate-400 mt-1">
+            Props: <code>data</code>, <code>sequence</code>, <code>autoPlay</code>
+            <br />
+            Methods: <code>play()</code>, <code>reset()</code>, <code>highlightElements()</code>, <code>clearHighlights()</code>
+          </p>
+        </div>
       </div>
     </Card>
   </Section>
