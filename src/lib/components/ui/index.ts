@@ -19,3 +19,6 @@ export { default as Badge } from './Badge.svelte';
 // Feedback
 export { default as Spinner } from './Spinner.svelte';
 export { default as Progress } from './Progress.svelte';
+
+// Modals
+export { default as ContactModal } from './ContactModal.svelte';
