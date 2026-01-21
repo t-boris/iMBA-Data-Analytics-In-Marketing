@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import emailjs from '@emailjs/browser';
+  import { PUBLIC_EMAILJS_SERVICE_ID, PUBLIC_EMAILJS_TEMPLATE_ID, PUBLIC_EMAILJS_PUBLIC_KEY } from '$env/static/public';
 
   let {
     isOpen = $bindable(false),
@@ -9,11 +10,6 @@
     isOpen: boolean;
     onClose: () => void;
   } = $props();
-
-  // EmailJS configuration (same as iMBA-Microeconomics)
-  const EMAILJS_SERVICE_ID = 'service_2fccy0j';
-  const EMAILJS_TEMPLATE_ID = 'template_zklxu74';
-  const EMAILJS_PUBLIC_KEY = 'NQFIxCX6cEQTkgGxl';
 
   let email = $state('');
   let message = $state('');
@@ -51,15 +47,15 @@
 
     try {
       await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
+        PUBLIC_EMAILJS_SERVICE_ID,
+        PUBLIC_EMAILJS_TEMPLATE_ID,
         {
           from_email: email,
           message: message,
           to_email: 'boris@mobilemindai.com',
           reply_to: email,
         },
-        EMAILJS_PUBLIC_KEY
+        PUBLIC_EMAILJS_PUBLIC_KEY
       );
 
       status = 'success';
