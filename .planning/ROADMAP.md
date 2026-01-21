@@ -8,114 +8,43 @@ Transform course notes into a modern visual learning platform. Start with techni
 
 None
 
-## Phases
+## Milestones
 
-**Phase Numbering:**
-- Integer phases (1, 2, 3): Planned milestone work
-- Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
+- [v1.0 MVP](milestones/v1.0-ROADMAP.md) (Phases 1-10) — SHIPPED 2026-01-20
 
-- [x] **Phase 1: Foundation** — Project setup, tech stack, Firebase config
-- [x] **Phase 2: Design System** — Visual components, typography, color palette, layout primitives
-- [x] **Phase 3: Core Navigation** — Module structure, routing, navigation UI
-- [x] **Phase 4: Visualization Engine** — Interactive diagram components, causal graph rendering
-- [x] **Phase 5: Animation System** — Step-by-step animated explanations framework
-- [x] **Phase 6: Module 1 Content** — Causal Analysis (all 8 lectures transformed to visual content)
-- [x] **Phase 7: Exam Preparation** — Review questions, flashcards, self-assessment features
-- [x] **Phase 8: Concept Glossary** — Searchable visual definitions dictionary
-- [x] **Phase 9: Interactive Exploration** — Data manipulation tools, "what-if" scenarios
-- [ ] **Phase 10: Polish & Deploy** — Performance optimization, Firebase deployment, final testing
+## Completed Milestones
 
-## Phase Details
+<details>
+<summary>v1.0 MVP (Phases 1-10) — SHIPPED 2026-01-20</summary>
 
-### Phase 1: Foundation
-**Goal**: Working development environment with chosen tech stack and Firebase project configured
-**Depends on**: Nothing (first phase)
-**Research**: Likely (tech stack decision)
-**Research topics**: React vs Vue vs Svelte for visual-heavy app, animation library ecosystem, Firebase SDK setup
-**Plans**: TBD
+- [x] Phase 1: Foundation (1/1 plans) — completed 2026-01-18
+- [x] Phase 2: Design System (5/5 plans) — completed 2026-01-19
+- [x] Phase 3: Core Navigation (3/3 plans) — completed 2026-01-19
+- [x] Phase 4: Visualization Engine (4/4 plans) — completed 2026-01-19
+- [x] Phase 5: Animation System (3/3 plans) — completed 2026-01-19
+- [x] Phase 6: Module 1 Content (4/4 plans) — completed 2026-01-19
+- [x] Phase 7: Exam Preparation (4/4 plans) — completed 2026-01-19
+- [x] Phase 8: Concept Glossary (3/3 plans) — completed 2026-01-19
+- [x] Phase 9: Interactive Exploration (3/3 plans) — completed 2026-01-19
+- [x] Phase 10: Polish & Deploy — completed 2026-01-20 (pre-deployed)
 
-### Phase 2: Design System
-**Goal**: Complete design system with reusable visual components ready for content
-**Depends on**: Phase 1
-**Research**: Unlikely (internal UI patterns)
-**Plans**: TBD
+**Total:** 10 phases, 30 plans
 
-### Phase 3: Core Navigation
-**Goal**: Working module navigation with 8-module structure and responsive layout
-**Depends on**: Phase 2
-**Research**: Unlikely (standard routing patterns)
-**Plans**: TBD
+See [v1.0-ROADMAP.md](milestones/v1.0-ROADMAP.md) for full details.
 
-### Phase 4: Visualization Engine
-**Goal**: Reusable components for causal diagrams, DAGs, flowcharts, and treatment effect visualizations
-**Depends on**: Phase 2
-**Research**: Likely (visualization libraries)
-**Research topics**: D3.js vs vis.js vs react-flow for DAG rendering, SVG vs Canvas approach, accessibility for diagrams
-**Plans**: TBD
-
-### Phase 5: Animation System
-**Goal**: Framework for step-by-step animated explanations (3Blue1Brown style)
-**Depends on**: Phase 4
-**Research**: Likely (animation libraries)
-**Research topics**: Framer Motion vs GSAP vs Motion One, sequenced animations, scroll-triggered animations
-**Plans**: TBD
-
-### Phase 6: Module 1 Content
-**Goal**: Complete Module 1 (Causal Analysis) with all 8 lectures transformed into visual content
-**Depends on**: Phase 5
-**Research**: Unlikely (content transformation from provided notes)
-**Plans**: TBD
-
-Lectures to cover:
-- Introduction to Causal Analysis
-- Key Thinkers (Neyman, Rubin, Pearl)
-- Randomized Experiments
-- Matching Methods
-- Instrumental Variables
-- Field Experiment Example
-- Difference-in-Differences
-- Python Demo (DID)
-
-### Phase 7: Exam Preparation
-**Goal**: Review questions section with per-module Q&A and self-assessment features
-**Depends on**: Phase 6
-**Research**: Unlikely (internal feature)
-**Plans**: TBD
-
-### Phase 8: Concept Glossary
-**Goal**: Searchable glossary with visual definitions for all Module 1 concepts
-**Depends on**: Phase 6
-**Research**: Unlikely (internal feature)
-**Plans**: TBD
-
-### Phase 9: Interactive Exploration
-**Goal**: Tools for manipulating variables and seeing causal effects in action
-**Depends on**: Phase 4, Phase 6
-**Research**: Likely (interactive data visualization)
-**Research topics**: Interactive regression visualizers, simulated experiment tools, parameter sliders with real-time updates
-**Plans**: TBD
-
-### Phase 10: Polish & Deploy
-**Goal**: Production-ready app deployed to Firebase with optimized performance
-**Depends on**: All previous phases
-**Research**: Likely (Firebase deployment)
-**Research topics**: Firebase Hosting setup, build optimization, CDN configuration, analytics integration
-**Plans**: TBD
+</details>
 
 ## Progress
 
-**Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10
-
-| Phase | Plans Complete | Status | Completed |
-|-------|----------------|--------|-----------|
-| 1. Foundation | 1/1 | Complete | 2026-01-18 |
-| 2. Design System | 5/5 | Complete | 2026-01-19 |
-| 3. Core Navigation | 3/3 | Complete | 2026-01-19 |
-| 4. Visualization Engine | 4/4 | Complete | 2026-01-19 |
-| 5. Animation System | 3/3 | Complete | 2026-01-19 |
-| 6. Module 1 Content | 4/4 | Complete | 2026-01-19 |
-| 7. Exam Preparation | 4/4 | Complete | 2026-01-19 |
-| 8. Concept Glossary | 3/3 | Complete | 2026-01-19 |
-| 9. Interactive Exploration | 3/3 | Complete | 2026-01-19 |
-| 10. Polish & Deploy | 0/TBD | Not started | - |
+| Phase | Milestone | Plans Complete | Status | Completed |
+|-------|-----------|----------------|--------|-----------|
+| 1. Foundation | v1.0 | 1/1 | Complete | 2026-01-18 |
+| 2. Design System | v1.0 | 5/5 | Complete | 2026-01-19 |
+| 3. Core Navigation | v1.0 | 3/3 | Complete | 2026-01-19 |
+| 4. Visualization Engine | v1.0 | 4/4 | Complete | 2026-01-19 |
+| 5. Animation System | v1.0 | 3/3 | Complete | 2026-01-19 |
+| 6. Module 1 Content | v1.0 | 4/4 | Complete | 2026-01-19 |
+| 7. Exam Preparation | v1.0 | 4/4 | Complete | 2026-01-19 |
+| 8. Concept Glossary | v1.0 | 3/3 | Complete | 2026-01-19 |
+| 9. Interactive Exploration | v1.0 | 3/3 | Complete | 2026-01-19 |
+| 10. Polish & Deploy | v1.0 | - | Complete | 2026-01-20 |
