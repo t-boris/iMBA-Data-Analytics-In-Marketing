@@ -109,13 +109,116 @@ const module1Lectures: Lecture[] = [
 ];
 
 // =============================================================================
+// Module 2: AI, Prediction & Machine Learning - Full lecture definitions
+// =============================================================================
+
+const module2Lectures: Lecture[] = [
+  {
+    id: '2-1',
+    moduleId: '2',
+    order: 1,
+    title: 'Introduction to AI, ML, and Prediction',
+    slug: 'introduction-ai-ml',
+    description: 'What AI and ML are, why they matter now, and how prediction creates value',
+    duration: '20 min read',
+    hasVisualization: true,
+    hasAnimation: true,
+    status: 'ready'
+  },
+  {
+    id: '2-2',
+    moduleId: '2',
+    order: 2,
+    title: 'Foundations of Machine Learning Frameworks',
+    slug: 'ml-frameworks',
+    description: 'Bias-variance trade-off, train-test split, and model evaluation fundamentals',
+    duration: '25 min read',
+    hasVisualization: true,
+    hasAnimation: true,
+    status: 'ready'
+  },
+  {
+    id: '2-3',
+    moduleId: '2',
+    order: 3,
+    title: 'Geotracking Data and Privacy',
+    slug: 'geotracking-privacy',
+    description: 'Location data in marketing, privacy considerations, and ethical use',
+    duration: '20 min read',
+    hasVisualization: true,
+    hasAnimation: false,
+    status: 'coming-soon'
+  },
+  {
+    id: '2-4',
+    moduleId: '2',
+    order: 4,
+    title: 'LLMs for Market Research',
+    slug: 'llm-market-research',
+    description: 'Using large language models to augment market research and consumer insights',
+    duration: '25 min read',
+    hasVisualization: true,
+    hasAnimation: false,
+    status: 'coming-soon'
+  },
+  {
+    id: '2-5',
+    moduleId: '2',
+    order: 5,
+    title: 'Prediction and Causality',
+    slug: 'prediction-causality',
+    description: 'How prediction and causal inference complement each other in decision-making',
+    duration: '20 min read',
+    hasVisualization: true,
+    hasAnimation: true,
+    status: 'coming-soon'
+  },
+  {
+    id: '2-6',
+    moduleId: '2',
+    order: 6,
+    title: 'AI Ethics in Marketing',
+    slug: 'ai-ethics',
+    description: 'Fairness, transparency, and responsible AI practices in marketing applications',
+    duration: '20 min read',
+    hasVisualization: false,
+    hasAnimation: false,
+    status: 'coming-soon'
+  },
+  {
+    id: '2-7',
+    moduleId: '2',
+    order: 7,
+    title: 'Smartwatch Adoption Case Study',
+    slug: 'smartwatch-adoption',
+    description: 'Analyzing technology adoption patterns using ML and consumer behavior data',
+    duration: '25 min read',
+    hasVisualization: true,
+    hasAnimation: false,
+    status: 'coming-soon'
+  },
+  {
+    id: '2-8',
+    moduleId: '2',
+    order: 8,
+    title: 'ML Models in Python',
+    slug: 'ml-python-demo',
+    description: 'Hands-on Python implementation of machine learning models for marketing',
+    duration: '30 min read',
+    hasVisualization: true,
+    hasAnimation: false,
+    status: 'coming-soon'
+  }
+];
+
+// =============================================================================
 // All Modules Definition
 // =============================================================================
 
 /**
  * All 8 course modules.
- * Module 1 is fully defined with lectures.
- * Modules 2-8 are placeholders for future content.
+ * Modules 1-2 are fully defined with lectures.
+ * Modules 3-8 are placeholders for future content.
  */
 export const modules: Module[] = [
   {
@@ -132,13 +235,13 @@ export const modules: Module[] = [
   {
     id: '2',
     order: 2,
-    name: 'Module 2',
-    slug: 'module-2',
-    description: 'Coming soon',
-    icon: '📊',
+    name: 'AI, Prediction & Machine Learning',
+    slug: 'ai-ml-prediction',
+    description: 'Machine learning, prediction, and AI applications in marketing',
+    icon: '🤖',
     color: 'control',
-    lectures: [],
-    status: 'coming-soon'
+    lectures: module2Lectures,
+    status: 'active'
   },
   {
     id: '3',
