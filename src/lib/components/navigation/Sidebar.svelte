@@ -64,15 +64,15 @@
                     ? 'text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
                     : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}"
               >
-                <div class="flex items-center gap-3">
-                  <span class="flex h-6 w-6 items-center justify-center rounded-md text-xs font-semibold {isActive
+                <div class="flex items-center gap-3 min-w-0">
+                  <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-xs font-semibold {isActive
                     ? 'bg-blue-600 text-white'
                     : isComingSoon
                       ? 'bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500'
                       : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400'}">
                     {module.order}
                   </span>
-                  <span class="truncate">{module.name}</span>
+                  <span class="truncate" title={module.name}>{module.name}</span>
                 </div>
 
                 <!-- Lecture count badge / progress indicator -->
