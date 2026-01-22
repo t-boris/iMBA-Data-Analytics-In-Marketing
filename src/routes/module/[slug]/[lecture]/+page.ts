@@ -92,6 +92,16 @@ export const load: PageLoad = async ({ params }) => {
 					content = mod.lectureContent;
 					break;
 				}
+				case 'geotracking-privacy': {
+					const mod = await import('$lib/content/module2/geotracking-privacy');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'llm-market-research': {
+					const mod = await import('$lib/content/module2/llm-market-research');
+					content = mod.lectureContent;
+					break;
+				}
 			}
 		}
 	} catch (e) {

@@ -146,8 +146,8 @@ const module2Lectures: Lecture[] = [
     description: 'Location data in marketing, privacy considerations, and ethical use',
     duration: '20 min read',
     hasVisualization: true,
-    hasAnimation: false,
-    status: 'coming-soon'
+    hasAnimation: true,
+    status: 'ready'
   },
   {
     id: '2-4',
@@ -158,8 +158,8 @@ const module2Lectures: Lecture[] = [
     description: 'Using large language models to augment market research and consumer insights',
     duration: '25 min read',
     hasVisualization: true,
-    hasAnimation: false,
-    status: 'coming-soon'
+    hasAnimation: true,
+    status: 'ready'
   },
   {
     id: '2-5',

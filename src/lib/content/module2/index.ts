@@ -10,9 +10,13 @@ export { lectureContent as introductionAiMlContent } from './introduction-ai-ml'
 // Lecture 2: Foundations of Machine Learning Frameworks
 export { lectureContent as mlFrameworksContent } from './ml-frameworks';
 
-// Lectures 3-8 will be added in later plans:
-// - Lecture 3: Geotracking Data and Privacy
-// - Lecture 4: LLMs for Market Research
+// Lecture 3: Geotracking Data and Privacy
+export { lectureContent as geotrackingPrivacyContent } from './geotracking-privacy';
+
+// Lecture 4: LLMs for Market Research
+export { lectureContent as llmMarketResearchContent } from './llm-market-research';
+
+// Lectures 5-8 will be added in later plans:
 // - Lecture 5: Prediction and Causality
 // - Lecture 6: AI Ethics in Marketing
 // - Lecture 7: Smartwatch Adoption Case Study
