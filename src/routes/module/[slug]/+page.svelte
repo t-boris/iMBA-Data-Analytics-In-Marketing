@@ -4,7 +4,7 @@
 	import type { Module, Lecture } from '$lib/types/module';
 
 	let { data } = $props();
-	const module: Module = data.module;
+	const module = $derived(data.module as Module);
 
 	// Get color class based on module color
 	function getColorClasses(color: string): { bg: string; border: string; text: string } {
@@ -33,7 +33,7 @@
 		return colorMap[color] || colorMap.treatment;
 	}
 
-	const colorClasses = getColorClasses(module.color);
+	const colorClasses = $derived(getColorClasses(module.color));
 
 	// Get status badge variant
 	function getStatusBadge(status: Lecture['status']): { variant: string; label: string } {
