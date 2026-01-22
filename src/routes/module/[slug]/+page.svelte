@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
-	import { Container, Grid, Card, Badge, Progress } from '$lib/components/ui';
+	import { Container, Grid, Card, Badge } from '$lib/components/ui';
 	import type { Module, Lecture } from '$lib/types/module';
 
 	let { data } = $props();
@@ -77,14 +77,6 @@
 						{module.description}
 					</p>
 
-					<!-- Progress Indicator (placeholder) -->
-					<div class="mt-6 max-w-sm">
-						<div class="flex items-center justify-between text-sm text-slate-500 dark:text-slate-400 mb-2">
-							<span>Progress</span>
-							<span>0% complete</span>
-						</div>
-						<Progress value={0} size="sm" />
-					</div>
 				</div>
 			</div>
 		</Container>
