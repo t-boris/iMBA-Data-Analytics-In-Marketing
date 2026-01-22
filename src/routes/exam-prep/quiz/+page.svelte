@@ -4,7 +4,7 @@
   import { fly } from 'svelte/transition';
   import { Container, Card, Button } from '$lib/components/ui';
   import { Flashcard, QuizNav } from '$lib/components/exam';
-  import { module1Questions, selectQuestions } from '$lib/exam';
+  import { getQuestionsByModule, selectQuestions } from '$lib/exam';
   import {
     quizState,
     startQuiz,
@@ -19,6 +19,7 @@
     data: {
       length: number;
       difficulty: string;
+      moduleId: string;
     };
   }
 
@@ -50,7 +51,8 @@
   onMount(() => {
     // Select questions based on URL params
     const difficulty = data.difficulty as 'easy' | 'medium' | 'hard' | 'mixed';
-    const selectedQuestions = selectQuestions(data.length, difficulty, module1Questions);
+    const moduleQuestions = getQuestionsByModule(data.moduleId);
+    const selectedQuestions = selectQuestions(data.length, difficulty, moduleQuestions);
 
     // Check if we have questions
     if (selectedQuestions.length === 0) {

@@ -9,6 +9,7 @@ export { categoryInfo, allCategories } from './types';
 
 // Data
 export { module1Concepts } from './concepts/module1';
+export { module2Concepts } from './concepts/module2';
 
 // Utilities
 export {
@@ -25,5 +26,6 @@ export {
 
 // Aggregated concepts (add more modules as they're created)
 import { module1Concepts } from './concepts/module1';
+import { module2Concepts } from './concepts/module2';
 
-export const allConcepts = [...module1Concepts];
+export const allConcepts = [...module1Concepts, ...module2Concepts];

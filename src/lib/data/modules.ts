@@ -194,8 +194,8 @@ const module2Lectures: Lecture[] = [
     description: 'Analyzing technology adoption patterns using ML and consumer behavior data',
     duration: '25 min read',
     hasVisualization: true,
-    hasAnimation: false,
-    status: 'coming-soon'
+    hasAnimation: true,
+    status: 'ready'
   },
   {
     id: '2-8',
@@ -206,8 +206,8 @@ const module2Lectures: Lecture[] = [
     description: 'Hands-on Python implementation of machine learning models for marketing',
     duration: '30 min read',
     hasVisualization: true,
-    hasAnimation: false,
-    status: 'coming-soon'
+    hasAnimation: true,
+    status: 'ready'
   }
 ];
 

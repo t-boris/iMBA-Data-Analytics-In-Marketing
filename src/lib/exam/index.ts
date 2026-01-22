@@ -18,6 +18,26 @@ export type {
 
 // Question bank exports
 export { module1Questions } from './questions/module1';
+export { module2Questions } from './questions/module2';
+
+// Aggregated questions
+import { module1Questions } from './questions/module1';
+import { module2Questions } from './questions/module2';
+export const allQuestions = [...module1Questions, ...module2Questions];
+
+// Get questions by module
+export function getQuestionsByModule(moduleId: string) {
+	switch (moduleId) {
+		case 'module1':
+		case '1':
+			return module1Questions;
+		case 'module2':
+		case '2':
+			return module2Questions;
+		default:
+			return allQuestions;
+	}
+}
 
 // Utility function exports
 export {

@@ -22,6 +22,8 @@ export { lectureContent as predictionCausalityContent } from './prediction-causa
 // Lecture 6: AI Ethics in Marketing
 export { lectureContent as aiEthicsContent } from './ai-ethics';
 
-// Lectures 7-8 will be added in later plans:
-// - Lecture 7: Smartwatch Adoption Case Study
-// - Lecture 8: ML Models in Python
+// Lecture 7: Smartwatch Adoption Case Study
+export { lectureContent as smartwatchAdoptionContent } from './smartwatch-adoption';
+
+// Lecture 8: ML Models in Python
+export { lectureContent as mlPythonDemoContent } from './ml-python-demo';

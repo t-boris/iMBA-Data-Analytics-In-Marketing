@@ -112,6 +112,16 @@ export const load: PageLoad = async ({ params }) => {
 					content = mod.lectureContent;
 					break;
 				}
+				case 'smartwatch-adoption': {
+					const mod = await import('$lib/content/module2/smartwatch-adoption');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'ml-python-demo': {
+					const mod = await import('$lib/content/module2/ml-python-demo');
+					content = mod.lectureContent;
+					break;
+				}
 			}
 		}
 	} catch (e) {
