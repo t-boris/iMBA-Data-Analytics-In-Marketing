@@ -9,12 +9,12 @@ See: .planning/PROJECT.md (updated 2026-01-20)
 
 ## Current Position
 
-Phase: 11 — Module 2 Content (4 plans, 1 complete)
-Plan: 11-02 (next)
+Phase: 11 — Module 2 Content (4 plans, 2 complete)
+Plan: 11-03 (next)
 Status: Executing phase
-Last activity: 2026-01-22 — Plan 11-01 complete
+Last activity: 2026-01-22 — Plan 11-02 complete
 
-**Next Plan:** 11-02 - Lectures 3-4 (Geotracking/Privacy, LLMs)
+**Next Plan:** 11-03 - Lectures 5-6 (Prediction+Causality, Ethics)
 
 Progress: ██████████ 100% (v1.0)
 
