@@ -336,4 +336,53 @@
 	:global(.hljs-variable) { color: #f07178; }
 	:global(.hljs-operator) { color: #89ddff; }
 	:global(.hljs-punctuation) { color: #89ddff; }
+
+	/* Table styling for GFM markdown tables */
+	:global(.content-section table) {
+		width: 100%;
+		border-collapse: collapse;
+		margin: 1.5rem 0;
+		font-size: 0.875rem;
+	}
+
+	:global(.content-section thead) {
+		background-color: #1e293b;
+	}
+
+	:global(.content-section th) {
+		padding: 0.75rem 1rem;
+		text-align: left;
+		font-weight: 600;
+		color: #f1f5f9;
+		border-bottom: 2px solid #334155;
+	}
+
+	:global(.content-section td) {
+		padding: 0.75rem 1rem;
+		border-bottom: 1px solid #334155;
+		color: #e2e8f0;
+	}
+
+	:global(.content-section tbody tr:hover) {
+		background-color: #1e293b;
+	}
+
+	/* Light mode table overrides */
+	:global(.light .content-section thead) {
+		background-color: #f1f5f9;
+	}
+
+	:global(.light .content-section th) {
+		color: #1e293b;
+		border-bottom-color: #cbd5e1;
+	}
+
+	:global(.light .content-section td) {
+		border-bottom-color: #e2e8f0;
+		color: #334155;
+	}
+
+	:global(.light .content-section tbody tr:hover) {
+		background-color: #f8fafc;
+	}
 </style>
