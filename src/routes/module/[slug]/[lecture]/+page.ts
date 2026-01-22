@@ -102,6 +102,16 @@ export const load: PageLoad = async ({ params }) => {
 					content = mod.lectureContent;
 					break;
 				}
+				case 'prediction-causality': {
+					const mod = await import('$lib/content/module2/prediction-causality');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'ai-ethics': {
+					const mod = await import('$lib/content/module2/ai-ethics');
+					content = mod.lectureContent;
+					break;
+				}
 			}
 		}
 	} catch (e) {

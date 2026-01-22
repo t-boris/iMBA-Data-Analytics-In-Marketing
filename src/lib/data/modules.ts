@@ -171,7 +171,7 @@ const module2Lectures: Lecture[] = [
     duration: '20 min read',
     hasVisualization: true,
     hasAnimation: true,
-    status: 'coming-soon'
+    status: 'ready'
   },
   {
     id: '2-6',
@@ -181,9 +181,9 @@ const module2Lectures: Lecture[] = [
     slug: 'ai-ethics',
     description: 'Fairness, transparency, and responsible AI practices in marketing applications',
     duration: '20 min read',
-    hasVisualization: false,
-    hasAnimation: false,
-    status: 'coming-soon'
+    hasVisualization: true,
+    hasAnimation: true,
+    status: 'ready'
   },
   {
     id: '2-7',

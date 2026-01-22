@@ -16,8 +16,12 @@ export { lectureContent as geotrackingPrivacyContent } from './geotracking-priva
 // Lecture 4: LLMs for Market Research
 export { lectureContent as llmMarketResearchContent } from './llm-market-research';
 
-// Lectures 5-8 will be added in later plans:
-// - Lecture 5: Prediction and Causality
-// - Lecture 6: AI Ethics in Marketing
+// Lecture 5: Prediction and Causality
+export { lectureContent as predictionCausalityContent } from './prediction-causality';
+
+// Lecture 6: AI Ethics in Marketing
+export { lectureContent as aiEthicsContent } from './ai-ethics';
+
+// Lectures 7-8 will be added in later plans:
 // - Lecture 7: Smartwatch Adoption Case Study
 // - Lecture 8: ML Models in Python
