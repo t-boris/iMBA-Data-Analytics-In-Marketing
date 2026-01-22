@@ -79,6 +79,21 @@ export const load: PageLoad = async ({ params }) => {
 				}
 			}
 		}
+		// Module 2 content - AI, Prediction & Machine Learning
+		if (module.id === '2') {
+			switch (params.lecture) {
+				case 'introduction-ai-ml': {
+					const mod = await import('$lib/content/module2/introduction-ai-ml');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'ml-frameworks': {
+					const mod = await import('$lib/content/module2/ml-frameworks');
+					content = mod.lectureContent;
+					break;
+				}
+			}
+		}
 	} catch (e) {
 		// Content not yet available - that's fine for coming-soon lectures
 		console.log(`Content not available for lecture: ${params.lecture}`, e);
