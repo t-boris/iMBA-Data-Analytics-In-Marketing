@@ -154,29 +154,17 @@ const llmApproachSection: ContentSection = {
 
 const demandCurvesDiagram: DiagramData = {
 	nodes: [
-		// Human curve points (descending left to right, simulating demand curve)
-		{ id: 'h1', label: 'Human', type: 'control', x: 80, y: 40 },
-		{ id: 'h2', label: '', type: 'control', x: 140, y: 65 },
-		{ id: 'h3', label: '', type: 'control', x: 200, y: 90 },
-		{ id: 'h4', label: '', type: 'control', x: 260, y: 115 },
-		// GPT curve points (close alignment)
-		{ id: 'g1', label: 'GPT', type: 'confounder', x: 90, y: 50 },
-		{ id: 'g2', label: '', type: 'confounder', x: 150, y: 72 },
-		{ id: 'g3', label: '', type: 'confounder', x: 210, y: 95 },
-		{ id: 'g4', label: '', type: 'confounder', x: 270, y: 120 },
-		// Axis labels
-		{ id: 'price', label: 'Price', type: 'variable', x: 380, y: 140 },
-		{ id: 'demand', label: 'Demand', type: 'variable', x: 30, y: 20 }
+		// Simplified comparison showing alignment concept
+		{ id: 'human-label', label: 'Human\nResponses', type: 'control', x: 100, y: 50 },
+		{ id: 'gpt-label', label: 'GPT\nResponses', type: 'confounder', x: 300, y: 50 },
+		{ id: 'correlation', label: 'High\nCorrelation', type: 'outcome', x: 200, y: 130 },
+		{ id: 'wtp', label: 'Similar WTP\nPatterns', type: 'variable', x: 200, y: 30 }
 	],
 	edges: [
-		// Human curve
-		{ id: 'h1-h2', source: 'h1', target: 'h2' },
-		{ id: 'h2-h3', source: 'h2', target: 'h3' },
-		{ id: 'h3-h4', source: 'h3', target: 'h4' },
-		// GPT curve
-		{ id: 'g1-g2', source: 'g1', target: 'g2' },
-		{ id: 'g2-g3', source: 'g2', target: 'g3' },
-		{ id: 'g3-g4', source: 'g3', target: 'g4' }
+		{ id: 'h-c', source: 'human-label', target: 'correlation' },
+		{ id: 'g-c', source: 'gpt-label', target: 'correlation' },
+		{ id: 'h-w', source: 'human-label', target: 'wtp', style: 'dashed' },
+		{ id: 'g-w', source: 'gpt-label', target: 'wtp', style: 'dashed' }
 	]
 };
 
