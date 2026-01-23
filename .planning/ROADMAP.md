@@ -10,7 +10,7 @@ None
 
 ## Milestones
 
-- [v1.1 Module 2 Content](milestones/v1.1-ROADMAP.md) (Phase 11+) — In Progress
+- [v1.1 Module 2 Content](milestones/v1.1-ROADMAP.md) (Phase 11) — SHIPPED 2026-01-22
 - [v1.0 MVP](milestones/v1.0-ROADMAP.md) (Phases 1-10) — SHIPPED 2026-01-20
 
 ## Completed Milestones
@@ -39,7 +39,7 @@ See [v1.0-ROADMAP.md](milestones/v1.0-ROADMAP.md) for full details.
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
-| 11. Module 2 Content | v1.1 | 3/4 | In Progress | - |
+| 11. Module 2 Content | v1.1 | 4/4 | Complete | 2026-01-22 |
 | 1. Foundation | v1.0 | 1/1 | Complete | 2026-01-18 |
 | 2. Design System | v1.0 | 5/5 | Complete | 2026-01-19 |
 | 3. Core Navigation | v1.0 | 3/3 | Complete | 2026-01-19 |

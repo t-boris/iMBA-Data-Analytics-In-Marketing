@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-01-20)
 
 **Core value:** Make abstract statistical and causal inference concepts crystal clear through visual explanations, interactive exploration, and comprehensive exam preparation
-**Current focus:** v1.1 Module 2 Content — Phase 11 not yet planned
+**Current focus:** v1.1 Module 2 Content — COMPLETE
 
 ## Current Position
 
-Phase: 11 — Module 2 Content (4 plans, 2 complete)
-Plan: 11-03 (next)
-Status: Executing phase
-Last activity: 2026-01-22 — Plan 11-02 complete
+Phase: 11 — Module 2 Content (4 plans, 4 complete)
+Plan: Complete
+Status: Milestone shipped
+Last activity: 2026-01-22 — Phase 11 complete
 
-**Next Plan:** 11-03 - Lectures 5-6 (Prediction+Causality, Ethics)
+**Milestone v1.1 shipped!** Module 2 complete with 8 lectures, 35 glossary terms, 50 exam questions.
 
 Progress: ██████████ 100% (v1.0)
 
