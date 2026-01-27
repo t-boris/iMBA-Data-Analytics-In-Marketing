@@ -11,7 +11,7 @@
  * - L7: Smartwatch Adoption Case Study
  * - L8: ML Models in Python
  *
- * Distribution: 10 easy, 25 medium, 15 hard
+ * Distribution: 10 easy (20%), 20 medium (40%), 20 hard (40%)
  * Coverage: 5-8 questions per lecture
  */
 
@@ -57,12 +57,14 @@ export const module2Questions: Question[] = [
 		difficulty: 'medium',
 		lectureId: 1
 	},
+
+	// L1 - Hard
 	{
-		id: 'm2-l1-m3',
+		id: 'm2-l1-h2',
 		question: 'In what scenarios might prediction fail even with good ML models?',
 		answer:
 			'ML prediction fails when: (1) Novel events occur that were not in training data (black swan events); (2) The data distribution shifts significantly; (3) Underlying causal mechanisms change; (4) Edge cases not represented in historical data. Examples: pandemics, natural disasters, celebrity visits. This is why human oversight and domain knowledge remain essential.',
-		difficulty: 'medium',
+		difficulty: 'hard',
 		lectureId: 1
 	},
 
@@ -125,11 +127,11 @@ export const module2Questions: Question[] = [
 		lectureId: 2
 	},
 	{
-		id: 'm2-l2-m4',
+		id: 'm2-l2-h3',
 		question: 'What is feature engineering and why does it matter for ML?',
 		answer:
 			'Feature engineering is the process of creating, transforming, and selecting input variables to improve model performance. Raw data often needs preprocessing: encoding categories, scaling numbers, creating interactions, extracting signals from text. Good features can dramatically improve model performance, though deep learning reduces this need by learning features automatically.',
-		difficulty: 'medium',
+		difficulty: 'hard',
 		lectureId: 2
 	},
 
@@ -193,12 +195,12 @@ export const module2Questions: Question[] = [
 		lectureId: 3
 	},
 	{
-		id: 'm2-l3-m4',
+		id: 'm2-l3-h2',
 		question:
 			'The study found that restricted geotracking still outperforms no geotracking. What is the strategic implication?',
 		answer:
 			'Even under privacy restrictions, location data provides value. Companies should not abandon geotracking entirely when regulations tighten - they should find privacy-compliant ways to use it. The strategic implication: invest in privacy-preserving analytics methods rather than abandoning data collection altogether.',
-		difficulty: 'medium',
+		difficulty: 'hard',
 		lectureId: 3
 	},
 
@@ -297,11 +299,11 @@ export const module2Questions: Question[] = [
 		lectureId: 5
 	},
 	{
-		id: 'm2-l5-m2',
+		id: 'm2-l5-h3',
 		question: 'Why might targeting the highest-predicted clickers NOT maximize revenue?',
 		answer:
 			'High-probability clickers might: (1) Click anyway without the ad (no incremental impact); (2) Click but not convert to purchases; (3) Be expensive to reach with diminishing returns. Maximum revenue comes from targeting users with highest INCREMENTAL response - those who would not have converted without the intervention. This requires causal measurement, not just prediction.',
-		difficulty: 'medium',
+		difficulty: 'hard',
 		lectureId: 5
 	},
 	{
@@ -313,19 +315,19 @@ export const module2Questions: Question[] = [
 		lectureId: 5
 	},
 	{
-		id: 'm2-l5-m4',
+		id: 'm2-l5-h4',
 		question: 'How can ML features be used in causal regression?',
 		answer:
 			'ML can extract features from unstructured data (sentiment, topics, intent from text) that then become control variables in causal regressions. This allows researchers to account for previously unmeasurable confounders. Example: NLP extracts customer sentiment from reviews; these sentiment scores control for attitude differences when estimating causal effects of marketing actions.',
-		difficulty: 'medium',
+		difficulty: 'hard',
 		lectureId: 5
 	},
 	{
-		id: 'm2-l5-m5',
+		id: 'm2-l5-h5',
 		question: 'The research found that more privacy sometimes led to higher revenue. Explain this counterintuitive finding.',
 		answer:
 			'Privacy restrictions prevented over-targeting of "obvious" customers who would have converted anyway. This forced the algorithm to find users with genuine incremental response - those who truly needed the ad to convert. Less personalization paradoxically improved efficiency by reducing wasted spend on customers with zero incremental value.',
-		difficulty: 'medium',
+		difficulty: 'hard',
 		lectureId: 5
 	},
 
@@ -373,11 +375,11 @@ export const module2Questions: Question[] = [
 		lectureId: 6
 	},
 	{
-		id: 'm2-l6-m2',
+		id: 'm2-l6-h3',
 		question: 'What is the trade-off between accuracy and fairness in AI systems?',
 		answer:
 			'Debiasing often reduces predictive accuracy because: (1) Removing predictive features that correlate with protected attributes hurts performance; (2) Forcing equal treatment across groups may ignore real differences; (3) Historical patterns may be genuinely predictive even if unfair. However, the crowdlending study showed debiased AI still outperformed biased human decisions, suggesting the trade-off may be smaller than assumed.',
-		difficulty: 'medium',
+		difficulty: 'hard',
 		lectureId: 6
 	},
 	{
@@ -441,11 +443,11 @@ export const module2Questions: Question[] = [
 		lectureId: 7
 	},
 	{
-		id: 'm2-l7-m3',
+		id: 'm2-l7-h2',
 		question: 'What categories of features are available in the smartwatch dataset and why does this diversity matter?',
 		answer:
 			'Categories: demographics (age, gender), behavioral (recency, tenure, gym membership), health (BMI, cardiac risk), geographic (gyms in ZIP), activity (daily physical activity). Diversity matters because: (1) Multiple signal sources improve prediction; (2) Different features may be predictive for different customer segments; (3) Allows the model to discover unexpected relationships (e.g., gym proximity predicting tech adoption).',
-		difficulty: 'medium',
+		difficulty: 'hard',
 		lectureId: 7
 	},
 
