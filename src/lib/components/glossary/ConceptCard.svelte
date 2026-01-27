@@ -7,6 +7,7 @@
 	import { Card } from '$lib/components/ui';
 	import type { GlossaryConcept } from '$lib/glossary/types';
 	import { categoryInfo } from '$lib/glossary/types';
+	import { modules } from '$lib/data/modules';
 	import RelatedConcepts from './RelatedConcepts.svelte';
 
 	// Register Python for syntax highlighting
@@ -92,10 +93,25 @@
 		}
 	}
 
-	// Get lecture path
-	function getLecturePath(): string {
-		return `/module/${concept.moduleId}/${concept.lectureId}`;
+	// Get lecture info from modules data
+	function getLectureInfo(): { path: string; title: string } | null {
+		// Map moduleId to the correct module (handle both 'module1'/'module2' and '1'/'2' formats)
+		const moduleId = concept.moduleId.replace('module', '');
+		const module = modules.find(m => m.id === moduleId);
+		if (!module) return null;
+
+		// Find lecture by order (lectureId in glossary = order in module)
+		const lecture = module.lectures.find(l => l.order === concept.lectureId);
+		if (!lecture) return null;
+
+		return {
+			path: `/module/${moduleId}/${lecture.slug}`,
+			title: lecture.title
+		};
 	}
+
+	// Derived lecture info
+	let lectureInfo = $derived(getLectureInfo());
 </script>
 
 <div class="border-l-4 {getBorderColorClass(info.color)}" id="concept-{concept.id}">
@@ -182,28 +198,30 @@
 				{/if}
 
 				<!-- Source Lecture Link -->
-				<div class="pt-2 border-t border-slate-100 dark:border-slate-700/50">
-					<a
-						href={getLecturePath()}
-						class="inline-flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="14"
-							height="14"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							aria-hidden="true"
+				{#if lectureInfo}
+					<div class="pt-2 border-t border-slate-100 dark:border-slate-700/50">
+						<a
+							href={lectureInfo.path}
+							class="inline-flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
 						>
-							<path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
-						</svg>
-						<span>Lecture {concept.lectureId}</span>
-					</a>
-				</div>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="14"
+								height="14"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+							>
+								<path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+							</svg>
+							<span>{lectureInfo.title}</span>
+						</a>
+					</div>
+				{/if}
 			</div>
 		{/if}
 	</Card>
