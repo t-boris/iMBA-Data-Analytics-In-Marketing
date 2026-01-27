@@ -319,6 +319,55 @@ const modelComparisonSection: ContentSection = {
 // Section 6: Results Table
 // =============================================================================
 
+const svcSection: ContentSection = {
+	id: 'support-vector-classifier',
+	type: 'text',
+	title: 'Support Vector Classifiers (SVC)',
+	content: `**Another Powerful Classification Option**
+
+Support Vector Classifiers (SVCs) are a different approach to classification that's particularly effective in certain scenarios.
+
+**How SVCs Work**
+
+SVCs find the optimal **hyperplane** (decision boundary) that separates classes by maximizing the **margin** - the distance between the boundary and the closest points from each class.
+
+**Key Features of SVCs:**
+
+| Feature | Description |
+|---------|-------------|
+| **Maximum Margin** | Finds the boundary with largest gap between classes |
+| **Support Vectors** | Only points closest to boundary determine the model |
+| **Kernel Trick** | Can handle non-linear boundaries using kernel functions |
+| **High-Dimensional** | Works well when features outnumber observations |
+
+**When to Use SVCs**
+
+SVCs excel when:
+- You have high-dimensional data (many features)
+- A clear margin of separation exists between classes
+- You have medium-sized datasets (slower on very large data)
+- You need robust performance with less hyperparameter tuning
+
+**Python Implementation**
+
+\`\`\`python
+from sklearn.svm import SVC
+
+# Create and train SVC with RBF kernel
+svc = SVC(kernel='rbf', random_state=42)
+svc.fit(X_train, y_train)
+y_pred = svc.predict(X_test)
+
+# Evaluate
+print(f"Accuracy: {accuracy_score(y_test, y_pred):.2%}")
+\`\`\`
+
+**Marketing Applications**
+- Customer segmentation with many behavioral features
+- Sentiment classification from text features
+- Churn prediction with complex feature interactions`
+};
+
 const resultsSection: ContentSection = {
 	id: 'results-table',
 	type: 'text',
@@ -330,11 +379,12 @@ const resultsSection: ContentSection = {
 | Logistic Regression | ~73% | ~72% | Simple baseline |
 | Ridge (L2) | ~73% | ~72% | More stable coefficients |
 | Lasso (L1) | ~73% | ~72% | Feature selection |
+| SVC (RBF kernel) | ~78% | ~77% | Good with complex boundaries |
 | **Random Forest** | **~84%** | **~83%** | **Best performance** |
 
 **Why Random Forest Wins**
 
-Random Forest outperforms linear models because:
+Random Forest outperforms other models because:
 
 1. **Captures nonlinearity** - Consumer behavior isn't linear
 2. **Handles interactions** - Combines features in complex ways
@@ -407,11 +457,13 @@ Choose metrics based on business goals:
 
 You now understand:
 - AI vs ML and why prediction matters
+- Point solutions vs system-based transformation
 - Bias-variance trade-off and model selection
 - Privacy considerations in data use
 - LLMs for market research
 - Combining prediction with causality
 - Ethical AI considerations
+- Classification models: Logistic, Ridge, Lasso, SVC, Random Forest
 - End-to-end ML implementation in Python`
 };
 
@@ -427,6 +479,7 @@ export const lectureContent: LectureContent = {
 		trainTestSection,
 		metricsSection,
 		modelComparisonSection,
+		svcSection,
 		resultsSection,
 		takeawaysSection
 	]

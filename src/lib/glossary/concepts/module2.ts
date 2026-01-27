@@ -519,5 +519,84 @@ Addressing bias requires awareness, measurement, and intentional mitigation.`,
 		lectureId: 8,
 		moduleId: 'module2',
 		tags: ['metrics', 'evaluation']
+	},
+	{
+		id: 'support-vector-classifier',
+		term: 'Support Vector Classifier (SVC)',
+		definition:
+			'A classification algorithm that finds the optimal hyperplane to separate classes by maximizing the margin between the closest data points (support vectors) of each class.',
+		extendedDefinition: `Support Vector Classifiers are powerful for binary classification:
+
+**Key Features:**
+- **Maximum margin**: Finds the decision boundary with the largest gap between classes
+- **Support vectors**: Only the closest points to the boundary determine the model
+- **Kernel trick**: Can handle non-linear boundaries using kernel functions (RBF, polynomial)
+
+**When to use SVCs:**
+- High-dimensional data (many features)
+- Clear margin of separation exists
+- Medium-sized datasets (slower on very large data)
+
+**Marketing applications:**
+- Customer segmentation
+- Churn prediction
+- Sentiment classification`,
+		category: 'estimator',
+		relatedConcepts: ['binary-classification', 'logistic-regression', 'random-forest'],
+		lectureId: 8,
+		moduleId: 'module2',
+		tags: ['model', 'classification']
+	},
+	{
+		id: 'point-solution',
+		term: 'Point Solution',
+		definition:
+			'An AI application that improves a single task or process without changing the broader business system or workflow.',
+		extendedDefinition: `From "Power and Prediction" by Agrawal, Gans, and Goldfarb:
+
+**Point solutions** are incremental AI adoptions:
+- Replace one step with a better prediction
+- Minimal disruption to existing processes
+- Quick wins with limited transformation
+
+**Examples:**
+- A chatbot for customer service
+- An email subject line optimizer
+- A single recommendation widget
+
+Point solutions are low-risk but capture only a fraction of AI's potential value.`,
+		category: 'foundation',
+		relatedConcepts: ['system-transformation', 'prediction'],
+		lectureId: 1,
+		moduleId: 'module2',
+		tags: ['strategy', 'adoption']
+	},
+	{
+		id: 'system-transformation',
+		term: 'System-Based Transformation',
+		definition:
+			'A fundamental redesign of business processes and architecture around AI prediction capabilities, creating new ways of operating rather than just improving existing tasks.',
+		extendedDefinition: `From "Power and Prediction" by Agrawal, Gans, and Goldfarb:
+
+**System transformation** reimagines the entire workflow:
+- Prediction becomes central to business architecture
+- Data flows redesigned for ML consumption
+- Decisions restructured for algorithmic optimization
+- Feedback loops built for continuous learning
+
+**Key distinction from point solutions:**
+- Point solutions: AI improves existing processes
+- System transformation: AI enables entirely new processes
+
+**Example: Amazon**
+- Point solution: Better product recommendations
+- System transformation: Anticipatory shipping (predicting orders before they're placed)
+
+System transformation captures the full value of AI but requires significant organizational change.`,
+		category: 'foundation',
+		relatedConcepts: ['point-solution', 'prediction'],
+		lectureId: 1,
+		moduleId: 'module2',
+		tags: ['strategy', 'adoption']
 	}
 ];

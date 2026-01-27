@@ -170,25 +170,45 @@ const systemTransformationSection: ContentSection = {
 	id: 'system-transformation',
 	type: 'text',
 	title: 'System-Wide Transformation',
-	content: `**The Climate Corporation Example**
+	content: `**Point Solutions vs System Transformation**
+
+The book "Power and Prediction" by Ajay Agrawal, Joshua Gans, and Avi Goldfarb introduces a crucial distinction for AI adoption:
+
+**Point Solutions**
+- Improve a single task without changing the broader system
+- Quick wins with minimal disruption
+- Examples: a chatbot, a recommendation widget, an email optimizer
+- Capture limited value from AI
+
+**System-Based Transformation**
+- Fundamental redesign of processes around prediction
+- AI becomes central to business architecture
+- Requires significant organizational change
+- Captures the full potential of AI
+
+**The Climate Corporation Example**
 
 Consider The Climate Corporation (acquired by Monsanto for $1B). They don't just use AI for one task - they've built their entire business around prediction:
 - Weather prediction for field-level recommendations
 - Yield prediction for insurance pricing
 - Pest/disease prediction for treatment timing
 
-This illustrates how AI transforms business architecture, not just individual tasks.
+This is system transformation: the business architecture itself is redesigned around prediction capabilities.
 
-**From Point Solutions to Business Architecture**
+**The Key Insight**
 
 Early AI adoption often starts with point solutions: a recommendation engine here, a chatbot there. But the real transformation comes when AI becomes central to business architecture:
 - Data flows are redesigned for ML consumption
 - Decisions are structured for algorithmic optimization
 - Feedback loops are built for continuous learning
 
+**Amazon's Evolution**
+- **Point solution**: Better product recommendations
+- **System transformation**: Anticipatory shipping - predicting and pre-positioning inventory before orders are placed
+
 **Marketing Implications**
 
-For marketing organizations, this means:
+For marketing organizations, system transformation means:
 - Moving from campaign-by-campaign to always-on optimization
 - Building customer data platforms that feed ML models
 - Creating feedback loops from outcomes back to predictions
