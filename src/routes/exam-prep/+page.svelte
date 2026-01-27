@@ -12,27 +12,53 @@
     getFormattedStats,
     type QuizHistory
   } from '$lib/exam/persistence';
+  import { modules } from '$lib/data/modules';
+
+  // Module info lookup
+  const moduleInfo: Record<string, { name: string; subtitle: string }> = {
+    '1': { name: 'Module 1', subtitle: 'Causal Inference' },
+    'module1': { name: 'Module 1', subtitle: 'Causal Inference' },
+    '2': { name: 'Module 2', subtitle: 'AI, Prediction & ML' },
+    'module2': { name: 'Module 2', subtitle: 'AI, Prediction & ML' }
+  };
+
+  // Track selected module from config
+  let selectedModuleId = $state<string>('1');
 
   // Reactive state for history and stats
   let recentHistory = $state<QuizHistory[]>([]);
   let masteryStats = $state<ReturnType<typeof getFormattedStats> | null>(null);
   let hasIncompleteQuiz = $state(false);
 
-  onMount(() => {
-    // Load quiz history from localStorage
-    const history = getQuizHistory('module1');
+  // Get current module display info
+  const currentModuleInfo = $derived(moduleInfo[selectedModuleId] || moduleInfo['1']);
+
+  // Function to load stats for a module
+  function loadModuleStats(moduleId: string) {
+    const history = getQuizHistory(moduleId);
     recentHistory = history.slice(-5).reverse(); // Last 5, most recent first
 
-    // Get mastery stats
     if (history.length > 0) {
-      masteryStats = getFormattedStats('module1');
+      masteryStats = getFormattedStats(moduleId);
+    } else {
+      masteryStats = null;
     }
+  }
+
+  onMount(() => {
+    // Subscribe to quizConfig to track module changes
+    const unsubscribe = quizConfig.subscribe((config) => {
+      selectedModuleId = config.moduleId;
+      loadModuleStats(config.moduleId);
+    });
 
     // Check for incomplete quiz
     const state = get(quizState);
     if (state.questions.length > 0 && state.answers.size < state.questions.length && state.answers.size > 0) {
       hasIncompleteQuiz = true;
     }
+
+    return unsubscribe;
   });
 
   function handleStartQuiz() {
@@ -93,7 +119,7 @@
         </h1>
         <p class="text-xl text-slate-600 dark:text-slate-300 mb-8">
           Master key concepts with visual flashcards. Test your understanding of causal inference,
-          experimental design, and marketing analytics through interactive review sessions.
+          machine learning, and marketing analytics through interactive review sessions.
         </p>
         <div class="flex flex-wrap justify-center gap-4 text-sm text-slate-500 dark:text-slate-400">
           <span class="flex items-center gap-2">
@@ -165,10 +191,10 @@
             </div>
             <div>
               <h2 class="text-xl font-bold text-slate-900 dark:text-white">
-                Module 1 Mastery
+                {currentModuleInfo.name} Mastery
               </h2>
               <p class="text-sm text-slate-500 dark:text-slate-400">
-                Your progress for Causal Inference
+                Your progress for {currentModuleInfo.subtitle}
               </p>
             </div>
           </div>
@@ -403,7 +429,7 @@
               <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
               <path d="m9 12 2 2 4-4"/>
             </svg>
-            <span><strong class="text-slate-700 dark:text-slate-300">Review the diagrams carefully</strong> - visual understanding of causal relationships is key to the exam.</span>
+            <span><strong class="text-slate-700 dark:text-slate-300">Review the diagrams carefully</strong> - visual understanding of concepts and relationships is key to the exam.</span>
           </li>
         </ul>
       </Card>
