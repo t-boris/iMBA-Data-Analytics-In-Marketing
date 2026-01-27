@@ -105,7 +105,7 @@
 		if (!lecture) return null;
 
 		return {
-			path: `/module/${moduleId}/${lecture.slug}`,
+			path: `/module/${module.slug}/${lecture.slug}`,
 			title: lecture.title
 		};
 	}
