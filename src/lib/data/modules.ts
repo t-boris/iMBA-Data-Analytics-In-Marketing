@@ -212,6 +212,133 @@ const module2Lectures: Lecture[] = [
 ];
 
 // =============================================================================
+// Module 3: User, Firm & AI-Generated Content - Full lecture definitions
+// =============================================================================
+
+const module3Lectures: Lecture[] = [
+  {
+    id: '3-1',
+    moduleId: '3',
+    order: 1,
+    title: 'Introduction to Online Content',
+    slug: 'intro-online-content',
+    description: 'UGC/FGC/AGC introduction, NPS, and social listening fundamentals',
+    duration: '20 min read',
+    hasVisualization: true,
+    hasAnimation: true,
+    status: 'ready'
+  },
+  {
+    id: '3-2',
+    moduleId: '3',
+    order: 2,
+    title: 'Text Analysis — Historical Perspective',
+    slug: 'text-analysis-history',
+    description: 'Evolution from oral tradition to digital text and misinformation risks',
+    duration: '20 min read',
+    hasVisualization: true,
+    hasAnimation: true,
+    status: 'ready'
+  },
+  {
+    id: '3-3',
+    moduleId: '3',
+    order: 3,
+    title: 'Types of Content',
+    slug: 'types-of-content',
+    description: 'Deep dive into content classification, authenticity, and analytics framework',
+    duration: '25 min read',
+    hasVisualization: true,
+    hasAnimation: true,
+    status: 'ready'
+  },
+  {
+    id: '3-4',
+    moduleId: '3',
+    order: 4,
+    title: 'UGC Deep Dive',
+    slug: 'ugc-deep-dive',
+    description: 'Reviews, ratings, chatter, valence, and negativity bias',
+    duration: '25 min read',
+    hasVisualization: true,
+    hasAnimation: true,
+    status: 'coming-soon'
+  },
+  {
+    id: '3-5',
+    moduleId: '3',
+    order: 5,
+    title: 'FGC Deep Dive',
+    slug: 'fgc-deep-dive',
+    description: 'Managerial responses, personalization, and customer receptivity',
+    duration: '25 min read',
+    hasVisualization: true,
+    hasAnimation: true,
+    status: 'coming-soon'
+  },
+  {
+    id: '3-6',
+    moduleId: '3',
+    order: 6,
+    title: 'AGC Deep Dive',
+    slug: 'agc-deep-dive',
+    description: 'LLMs, transformers, and perceived authenticity challenges',
+    duration: '25 min read',
+    hasVisualization: true,
+    hasAnimation: true,
+    status: 'coming-soon'
+  },
+  {
+    id: '3-7',
+    moduleId: '3',
+    order: 7,
+    title: 'Online Content Emerging Concerns',
+    slug: 'emerging-concerns',
+    description: 'Fake reviews, misinformation, and content moderation',
+    duration: '20 min read',
+    hasVisualization: true,
+    hasAnimation: true,
+    status: 'coming-soon'
+  },
+  {
+    id: '3-8',
+    moduleId: '3',
+    order: 8,
+    title: 'Influencer Marketing Introduction',
+    slug: 'influencer-marketing',
+    description: 'Influencer tiers, engagement rate, and live stream commerce',
+    duration: '25 min read',
+    hasVisualization: true,
+    hasAnimation: true,
+    status: 'coming-soon'
+  },
+  {
+    id: '3-9',
+    moduleId: '3',
+    order: 9,
+    title: 'Sentiment Analysis Application',
+    slug: 'sentiment-analysis',
+    description: 'BERT, DistilBERT, and dictionary methods comparison',
+    duration: '25 min read',
+    hasVisualization: true,
+    hasAnimation: true,
+    status: 'coming-soon'
+  },
+  {
+    id: '3-10',
+    moduleId: '3',
+    order: 10,
+    title: 'Python Demo: Sentiment Pipeline',
+    slug: 'python-sentiment-demo',
+    description: 'Hands-on NLP pipeline with spaCy and transformers',
+    duration: '30 min read',
+    hasVisualization: true,
+    hasAnimation: false,
+    status: 'coming-soon'
+  }
+];
+
+// =============================================================================
 // All Modules Definition
 // =============================================================================
 
@@ -246,13 +373,13 @@ export const modules: Module[] = [
   {
     id: '3',
     order: 3,
-    name: 'Module 3',
-    slug: 'module-3',
-    description: 'Coming soon',
-    icon: '📈',
+    name: 'User, Firm & AI-Generated Content',
+    slug: 'content-analysis',
+    description: 'Text analytics, content types, sentiment analysis, and influencer marketing',
+    icon: '💬',
     color: 'confounder',
-    lectures: [],
-    status: 'coming-soon'
+    lectures: module3Lectures,
+    status: 'active'
   },
   {
     id: '4',
