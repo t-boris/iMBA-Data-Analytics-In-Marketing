@@ -13,10 +13,16 @@ export { lectureContent as textAnalysisHistoryContent } from './text-analysis-hi
 // Lecture 3: Types of Content
 export { lectureContent as typesOfContentContent } from './types-of-content';
 
-// Placeholder exports for remaining lectures (will be added in later plans)
 // Lecture 4: UGC Deep Dive
+export { lectureContent as ugcDeepDiveContent } from './ugc-deep-dive';
+
 // Lecture 5: FGC Deep Dive
+export { lectureContent as fgcDeepDiveContent } from './fgc-deep-dive';
+
 // Lecture 6: AGC Deep Dive
+export { lectureContent as agcDeepDiveContent } from './agc-deep-dive';
+
+// Placeholder exports for remaining lectures (will be added in later plans)
 // Lecture 7: Online Content Emerging Concerns
 // Lecture 8: Influencer Marketing Introduction
 // Lecture 9: Sentiment Analysis Application
