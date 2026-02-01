@@ -3,9 +3,10 @@
  * Supports three modes: 'light', 'dark', 'system'
  */
 
+import { writable, derived } from 'svelte/store';
 import { browser } from '$app/environment';
 
-type Theme = 'light' | 'dark' | 'system';
+export type Theme = 'light' | 'dark' | 'system';
 
 const STORAGE_KEY = 'theme-preference';
 
@@ -35,42 +36,50 @@ function applyTheme(theme: Theme) {
 	document.documentElement.classList.toggle('dark', isDark);
 }
 
-// Create a simple reactive store
-let currentTheme = $state<Theme>(getInitialTheme());
+// Create the writable store
+function createThemeStore() {
+	const { subscribe, set, update } = writable<Theme>(getInitialTheme());
 
-// Apply initial theme
-if (browser) {
-	applyTheme(currentTheme);
+	// Apply initial theme on client
+	if (browser) {
+		// Subscribe to apply theme changes
+		subscribe((theme) => {
+			applyTheme(theme);
+		});
 
-	// Listen for system preference changes when in 'system' mode
-	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-		if (currentTheme === 'system') {
-			applyTheme('system');
+		// Listen for system preference changes
+		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+			update((current) => {
+				if (current === 'system') {
+					applyTheme('system');
+				}
+				return current;
+			});
+		});
+	}
+
+	return {
+		subscribe,
+		set: (value: Theme) => {
+			if (browser) {
+				localStorage.setItem(STORAGE_KEY, value);
+			}
+			set(value);
+		},
+		toggle: () => {
+			update((current) => {
+				const next: Theme =
+					current === 'light' ? 'dark' : current === 'dark' ? 'system' : 'light';
+				if (browser) {
+					localStorage.setItem(STORAGE_KEY, next);
+				}
+				return next;
+			});
 		}
-	});
+	};
 }
 
-export const theme = {
-	get value() {
-		return currentTheme;
-	},
+export const theme = createThemeStore();
 
-	set(newTheme: Theme) {
-		currentTheme = newTheme;
-		if (browser) {
-			localStorage.setItem(STORAGE_KEY, newTheme);
-			applyTheme(newTheme);
-		}
-	},
-
-	toggle() {
-		// Cycle through: light -> dark -> system -> light
-		const next: Theme =
-			currentTheme === 'light' ? 'dark' : currentTheme === 'dark' ? 'system' : 'light';
-		this.set(next);
-	},
-
-	get isDark() {
-		return shouldBeDark(currentTheme);
-	}
-};
+// Derived store for checking if currently dark
+export const isDark = derived(theme, ($theme) => shouldBeDark($theme));
