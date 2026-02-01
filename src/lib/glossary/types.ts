@@ -16,7 +16,8 @@ export type ConceptCategory =
 	| 'estimator'
 	| 'bias'
 	| 'design'
-	| 'dag';
+	| 'dag'
+	| 'nlp';
 
 /**
  * A glossary concept representing a causal inference term.
@@ -67,7 +68,8 @@ export const categoryInfo: Record<ConceptCategory, ConceptCategoryInfo> = {
 	estimator: { id: 'estimator', label: 'Estimator', color: 'emerald' },
 	bias: { id: 'bias', label: 'Bias', color: 'red' },
 	design: { id: 'design', label: 'Design', color: 'slate' },
-	dag: { id: 'dag', label: 'DAG', color: 'cyan' }
+	dag: { id: 'dag', label: 'DAG', color: 'cyan' },
+	nlp: { id: 'nlp', label: 'NLP & Text', color: 'violet' }
 };
 
 /**
@@ -80,5 +82,6 @@ export const allCategories: ConceptCategory[] = [
 	'estimator',
 	'bias',
 	'design',
-	'dag'
+	'dag',
+	'nlp'
 ];

@@ -175,11 +175,11 @@ const npsSection: ContentSection = {
 
 const socialListeningDiagram: DiagramData = {
 	nodes: [
-		{ id: 'discussions', label: 'Online Discussions', type: 'treatment', x: 40, y: 90 },
-		{ id: 'monitor', label: 'Monitor & Track', type: 'variable', x: 150, y: 90 },
-		{ id: 'sentiment', label: 'Analyze Sentiment', type: 'variable', x: 260, y: 90 },
-		{ id: 'themes', label: 'Extract Themes', type: 'variable', x: 370, y: 90 },
-		{ id: 'insights', label: 'Actionable Insights', type: 'outcome', x: 480, y: 90 }
+		{ id: 'discussions', label: 'Online Discussions', type: 'treatment', x: 30, y: 90 },
+		{ id: 'monitor', label: 'Monitor & Track', type: 'variable', x: 120, y: 90 },
+		{ id: 'sentiment', label: 'Analyze Sentiment', type: 'variable', x: 210, y: 90 },
+		{ id: 'themes', label: 'Extract Themes', type: 'variable', x: 300, y: 90 },
+		{ id: 'insights', label: 'Actionable Insights', type: 'outcome', x: 390, y: 90 }
 	],
 	edges: [
 		{ id: 'd-m', source: 'discussions', target: 'monitor' },

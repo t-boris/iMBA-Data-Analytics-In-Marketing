@@ -298,7 +298,7 @@ const module3Lectures: Lecture[] = [
     duration: '20 min read',
     hasVisualization: true,
     hasAnimation: true,
-    status: 'coming-soon'
+    status: 'ready'
   },
   {
     id: '3-8',
@@ -310,7 +310,7 @@ const module3Lectures: Lecture[] = [
     duration: '25 min read',
     hasVisualization: true,
     hasAnimation: true,
-    status: 'coming-soon'
+    status: 'ready'
   },
   {
     id: '3-9',
@@ -322,7 +322,7 @@ const module3Lectures: Lecture[] = [
     duration: '25 min read',
     hasVisualization: true,
     hasAnimation: true,
-    status: 'coming-soon'
+    status: 'ready'
   },
   {
     id: '3-10',
@@ -333,8 +333,8 @@ const module3Lectures: Lecture[] = [
     description: 'Hands-on NLP pipeline with spaCy and transformers',
     duration: '30 min read',
     hasVisualization: true,
-    hasAnimation: false,
-    status: 'coming-soon'
+    hasAnimation: true,
+    status: 'ready'
   }
 ];
 

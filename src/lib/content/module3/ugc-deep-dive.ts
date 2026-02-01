@@ -244,11 +244,11 @@ const ugcMetricsSection: ContentSection = {
 
 const fitUncertaintyDiagram: DiagramData = {
 	nodes: [
-		{ id: 'uncertainty', label: 'Fit Uncertainty', type: 'confounder', x: 60, y: 90 },
-		{ id: 'qa', label: 'Q&A Section', type: 'treatment', x: 200, y: 90 },
-		{ id: 'reduced', label: 'Reduced Uncertainty', type: 'outcome', x: 340, y: 50 },
-		{ id: 'satisfaction', label: 'Higher Satisfaction', type: 'outcome', x: 480, y: 50 },
-		{ id: 'fewer-neg', label: 'Fewer Negative Reviews', type: 'outcome', x: 480, y: 130 }
+		{ id: 'uncertainty', label: 'Fit Uncertainty', type: 'confounder', x: 50, y: 90 },
+		{ id: 'qa', label: 'Q&A Section', type: 'treatment', x: 150, y: 90 },
+		{ id: 'reduced', label: 'Reduced Uncertainty', type: 'outcome', x: 250, y: 50 },
+		{ id: 'satisfaction', label: 'Higher Satisfaction', type: 'outcome', x: 360, y: 50 },
+		{ id: 'fewer-neg', label: 'Fewer Neg Reviews', type: 'outcome', x: 360, y: 130 }
 	],
 	edges: [
 		{ id: 'u-qa', source: 'uncertainty', target: 'qa', label: 'addressed by' },
@@ -391,11 +391,11 @@ const viralitySection: ContentSection = {
 
 const ugcImpactDiagram: DiagramData = {
 	nodes: [
-		{ id: 'ugc-metrics', label: 'UGC Metrics', type: 'treatment', x: 50, y: 90 },
-		{ id: 'quality', label: 'Perceived Quality', type: 'variable', x: 170, y: 90 },
-		{ id: 'trust', label: 'Trust', type: 'variable', x: 280, y: 90 },
-		{ id: 'conversion', label: 'Conversion', type: 'outcome', x: 380, y: 90 },
-		{ id: 'sales', label: 'Sales', type: 'outcome', x: 480, y: 90 }
+		{ id: 'ugc-metrics', label: 'UGC Metrics', type: 'treatment', x: 40, y: 90 },
+		{ id: 'quality', label: 'Perceived Quality', type: 'variable', x: 130, y: 90 },
+		{ id: 'trust', label: 'Trust', type: 'variable', x: 220, y: 90 },
+		{ id: 'conversion', label: 'Conversion', type: 'outcome', x: 300, y: 90 },
+		{ id: 'sales', label: 'Sales', type: 'outcome', x: 380, y: 90 }
 	],
 	edges: [
 		{ id: 'u-q', source: 'ugc-metrics', target: 'quality', label: 'shapes' },

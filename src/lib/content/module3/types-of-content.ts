@@ -364,10 +364,10 @@ const agcSection: ContentSection = {
 
 const authenticityDiagram: DiagramData = {
 	nodes: [
-		{ id: 'authenticity', label: 'Content Authenticity', type: 'treatment', x: 60, y: 90 },
-		{ id: 'trust', label: 'Perceived Trust', type: 'variable', x: 200, y: 90 },
-		{ id: 'engagement', label: 'Engagement', type: 'variable', x: 340, y: 90 },
-		{ id: 'conversion', label: 'Conversion', type: 'outcome', x: 480, y: 90 }
+		{ id: 'authenticity', label: 'Content Authenticity', type: 'treatment', x: 50, y: 90 },
+		{ id: 'trust', label: 'Perceived Trust', type: 'variable', x: 160, y: 90 },
+		{ id: 'engagement', label: 'Engagement', type: 'variable', x: 270, y: 90 },
+		{ id: 'conversion', label: 'Conversion', type: 'outcome', x: 370, y: 90 }
 	],
 	edges: [
 		{ id: 'a-t', source: 'authenticity', target: 'trust', label: 'drives' },

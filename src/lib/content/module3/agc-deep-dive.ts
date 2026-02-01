@@ -265,10 +265,10 @@ const llmSection: ContentSection = {
 
 const attentionDiagram: DiagramData = {
 	nodes: [
-		{ id: 'input', label: 'Input Tokens', type: 'treatment', x: 60, y: 90 },
-		{ id: 'attention', label: 'Attention Layer', type: 'control', x: 190, y: 90 },
-		{ id: 'context', label: 'Context Understanding', type: 'variable', x: 340, y: 90 },
-		{ id: 'output', label: 'Output', type: 'outcome', x: 480, y: 90 }
+		{ id: 'input', label: 'Input Tokens', type: 'treatment', x: 50, y: 90 },
+		{ id: 'attention', label: 'Attention Layer', type: 'control', x: 155, y: 90 },
+		{ id: 'context', label: 'Context Understanding', type: 'variable', x: 270, y: 90 },
+		{ id: 'output', label: 'Output', type: 'outcome', x: 380, y: 90 }
 	],
 	edges: [
 		{ id: 'i-a', source: 'input', target: 'attention', label: 'all words' },

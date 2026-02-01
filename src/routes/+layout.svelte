@@ -30,7 +30,7 @@
 	<Sidebar modules={modules} isOpen={isMobileMenuOpen} onClose={closeMobileMenu} />
 
 	<!-- Main content area (with left margin on desktop to account for sidebar) -->
-	<main class="lg:ml-64 min-h-[calc(100vh-4rem)] bg-slate-50 dark:bg-slate-800">
+	<main class="min-h-[calc(100vh-4rem)] bg-slate-50 dark:bg-slate-800 lg:ml-[var(--sidebar-width,256px)]">
 		<div class="p-6">
 			{@render children()}
 		</div>

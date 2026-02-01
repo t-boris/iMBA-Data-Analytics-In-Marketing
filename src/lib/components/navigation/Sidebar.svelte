@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
+  import { browser } from '$app/environment';
   import type { Module } from '$lib/types/module';
 
   let {
@@ -19,6 +20,77 @@
     const match = pathname.match(/\/module\/([^/]+)/);
     return match ? match[1] : null;
   });
+
+  // Resizable sidebar state
+  const MIN_WIDTH = 200;
+  const MAX_WIDTH = 400;
+  const DEFAULT_WIDTH = 256;
+  const STORAGE_KEY = 'sidebar-width';
+
+  let sidebarWidth = $state(DEFAULT_WIDTH);
+  let isResizing = $state(false);
+
+  // Load saved width from localStorage
+  $effect(() => {
+    if (browser) {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const parsed = parseInt(saved, 10);
+        if (!isNaN(parsed) && parsed >= MIN_WIDTH && parsed <= MAX_WIDTH) {
+          sidebarWidth = parsed;
+        }
+      }
+    }
+  });
+
+  // Save width to localStorage when it changes
+  function saveWidth(width: number) {
+    if (browser) {
+      localStorage.setItem(STORAGE_KEY, String(width));
+    }
+  }
+
+  // Update CSS custom property for layout margin
+  $effect(() => {
+    if (browser) {
+      document.documentElement.style.setProperty('--sidebar-width', `${sidebarWidth}px`);
+    }
+  });
+
+  // Handle resize drag
+  function handleMouseDown(e: MouseEvent) {
+    e.preventDefault();
+    isResizing = true;
+    document.body.style.cursor = 'col-resize';
+    document.body.style.userSelect = 'none';
+  }
+
+  function handleMouseMove(e: MouseEvent) {
+    if (!isResizing) return;
+    const newWidth = Math.min(MAX_WIDTH, Math.max(MIN_WIDTH, e.clientX));
+    sidebarWidth = newWidth;
+  }
+
+  function handleMouseUp() {
+    if (isResizing) {
+      isResizing = false;
+      document.body.style.cursor = '';
+      document.body.style.userSelect = '';
+      saveWidth(sidebarWidth);
+    }
+  }
+
+  // Add/remove global listeners for resize
+  $effect(() => {
+    if (browser && isResizing) {
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseup', handleMouseUp);
+      return () => {
+        window.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('mouseup', handleMouseUp);
+      };
+    }
+  });
 </script>
 
 <!-- Mobile backdrop overlay -->
@@ -33,7 +105,8 @@
 
 <!-- Sidebar -->
 <aside
-  class="fixed top-16 bottom-0 left-0 z-50 w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-700 transform transition-transform duration-300 ease-in-out lg:translate-x-0 {isOpen ? 'translate-x-0' : '-translate-x-full'}"
+  class="fixed top-16 bottom-0 left-0 z-50 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-700 transform transition-transform duration-300 ease-in-out lg:translate-x-0 {isOpen ? 'translate-x-0' : '-translate-x-full'}"
+  style="width: {sidebarWidth}px;"
 >
   <div class="flex flex-col h-full">
     <!-- Sidebar header -->
@@ -138,4 +211,14 @@
       </div>
     </div>
   </div>
+
+  <!-- Resize handle (desktop only) -->
+  <div
+    class="hidden lg:block absolute top-0 bottom-0 right-0 w-1 cursor-col-resize hover:bg-blue-500/50 transition-colors {isResizing ? 'bg-blue-500/50' : ''}"
+    onmousedown={handleMouseDown}
+    role="separator"
+    aria-orientation="vertical"
+    aria-label="Resize sidebar"
+    tabindex="0"
+  ></div>
 </aside>

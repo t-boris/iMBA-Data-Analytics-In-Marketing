@@ -134,10 +134,10 @@ const evolutionSection: ContentSection = {
 
 const userReviewsDiagram: DiagramData = {
 	nodes: [
-		{ id: 'reviews', label: 'User Reviews', type: 'treatment', x: 60, y: 90 },
-		{ id: 'proof', label: 'Social Proof', type: 'variable', x: 180, y: 90 },
-		{ id: 'uncertainty', label: 'Reduced Uncertainty', type: 'variable', x: 320, y: 90 },
-		{ id: 'decision', label: 'Purchase Decision', type: 'outcome', x: 470, y: 90 }
+		{ id: 'reviews', label: 'User Reviews', type: 'treatment', x: 50, y: 90 },
+		{ id: 'proof', label: 'Social Proof', type: 'variable', x: 150, y: 90 },
+		{ id: 'uncertainty', label: 'Reduced Uncertainty', type: 'variable', x: 260, y: 90 },
+		{ id: 'decision', label: 'Purchase Decision', type: 'outcome', x: 370, y: 90 }
 	],
 	edges: [
 		{ id: 'r-p', source: 'reviews', target: 'proof', label: 'creates' },

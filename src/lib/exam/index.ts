@@ -19,11 +19,13 @@ export type {
 // Question bank exports
 export { module1Questions } from './questions/module1';
 export { module2Questions } from './questions/module2';
+export { module3Questions } from './questions/module3';
 
 // Aggregated questions
 import { module1Questions } from './questions/module1';
 import { module2Questions } from './questions/module2';
-export const allQuestions = [...module1Questions, ...module2Questions];
+import { module3Questions } from './questions/module3';
+export const allQuestions = [...module1Questions, ...module2Questions, ...module3Questions];
 
 // Get questions by module
 export function getQuestionsByModule(moduleId: string) {
@@ -34,6 +36,9 @@ export function getQuestionsByModule(moduleId: string) {
 		case 'module2':
 		case '2':
 			return module2Questions;
+		case 'module3':
+		case '3':
+			return module3Questions;
 		default:
 			return allQuestions;
 	}

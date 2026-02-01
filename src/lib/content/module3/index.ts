@@ -22,8 +22,14 @@ export { lectureContent as fgcDeepDiveContent } from './fgc-deep-dive';
 // Lecture 6: AGC Deep Dive
 export { lectureContent as agcDeepDiveContent } from './agc-deep-dive';
 
-// Placeholder exports for remaining lectures (will be added in later plans)
 // Lecture 7: Online Content Emerging Concerns
+export { lectureContent as emergingConcernsContent } from './emerging-concerns';
+
 // Lecture 8: Influencer Marketing Introduction
+export { lectureContent as influencerMarketingContent } from './influencer-marketing';
+
 // Lecture 9: Sentiment Analysis Application
+export { lectureContent as sentimentAnalysisContent } from './sentiment-analysis';
+
 // Lecture 10: Python Demo: Sentiment Pipeline
+export { lectureContent as pythonSentimentDemoContent } from './python-sentiment-demo';

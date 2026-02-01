@@ -124,6 +124,61 @@ export const load: PageLoad = async ({ params }) => {
 				}
 			}
 		}
+		// Module 3 content - User, Firm & AI-Generated Content
+		if (module.id === '3') {
+			switch (params.lecture) {
+				case 'intro-online-content': {
+					const mod = await import('$lib/content/module3/intro-online-content');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'text-analysis-history': {
+					const mod = await import('$lib/content/module3/text-analysis-history');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'types-of-content': {
+					const mod = await import('$lib/content/module3/types-of-content');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'ugc-deep-dive': {
+					const mod = await import('$lib/content/module3/ugc-deep-dive');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'fgc-deep-dive': {
+					const mod = await import('$lib/content/module3/fgc-deep-dive');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'agc-deep-dive': {
+					const mod = await import('$lib/content/module3/agc-deep-dive');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'emerging-concerns': {
+					const mod = await import('$lib/content/module3/emerging-concerns');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'influencer-marketing': {
+					const mod = await import('$lib/content/module3/influencer-marketing');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'sentiment-analysis': {
+					const mod = await import('$lib/content/module3/sentiment-analysis');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'python-sentiment-demo': {
+					const mod = await import('$lib/content/module3/python-sentiment-demo');
+					content = mod.lectureContent;
+					break;
+				}
+			}
+		}
 	} catch (e) {
 		// Content not yet available - that's fine for coming-soon lectures
 		console.log(`Content not available for lecture: ${params.lecture}`, e);
