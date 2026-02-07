@@ -40,6 +40,7 @@ See [v1.0-ROADMAP.md](milestones/v1.0-ROADMAP.md) for full details.
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
+| 13. Module 4 Content | v1.2 | 0/4 | Planned | - |
 | 12. Module 3 Content | v1.2 | 0/4 | Planned | - |
 | 11. Module 2 Content | v1.1 | 4/4 | Complete | 2026-01-22 |
 | 1. Foundation | v1.0 | 1/1 | Complete | 2026-01-18 |
