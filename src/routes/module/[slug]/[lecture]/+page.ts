@@ -179,6 +179,26 @@ export const load: PageLoad = async ({ params }) => {
 				}
 			}
 		}
+		// Module 4 content - Customer Preferences and Lifetime Value Analysis
+		if (module.id === '4') {
+			switch (params.lecture) {
+				case 'consumer-demand-preferences': {
+					const mod = await import('$lib/content/module4/consumer-demand-preferences');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'stp-framework': {
+					const mod = await import('$lib/content/module4/stp-framework');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'conjoint-analysis': {
+					const mod = await import('$lib/content/module4/conjoint-analysis');
+					content = mod.lectureContent;
+					break;
+				}
+			}
+		}
 	} catch (e) {
 		// Content not yet available - that's fine for coming-soon lectures
 		console.log(`Content not available for lecture: ${params.lecture}`, e);

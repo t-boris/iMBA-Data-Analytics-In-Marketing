@@ -339,6 +339,109 @@ const module3Lectures: Lecture[] = [
 ];
 
 // =============================================================================
+// Module 4: Customer Preferences & Lifetime Value - Full lecture definitions
+// =============================================================================
+
+const module4Lectures: Lecture[] = [
+  {
+    id: '4-1',
+    moduleId: '4',
+    order: 1,
+    title: 'Consumer Demand and Preference Analysis',
+    slug: 'consumer-demand-preferences',
+    description: 'Music store case study, data-driven analysis, and module roadmap',
+    duration: '20 min read',
+    hasVisualization: true,
+    hasAnimation: true,
+    status: 'ready'
+  },
+  {
+    id: '4-2',
+    moduleId: '4',
+    order: 2,
+    title: 'Segmentation, Targeting, and Positioning',
+    slug: 'stp-framework',
+    description: 'STP framework, K-means clustering, vertical vs horizontal attributes, and market mapping',
+    duration: '25 min read',
+    hasVisualization: true,
+    hasAnimation: true,
+    status: 'ready'
+  },
+  {
+    id: '4-3',
+    moduleId: '4',
+    order: 3,
+    title: 'Conjoint Analysis',
+    slug: 'conjoint-analysis',
+    description: 'Measuring attribute value through part-worth utilities and trade-off analysis',
+    duration: '25 min read',
+    hasVisualization: true,
+    hasAnimation: true,
+    status: 'ready'
+  },
+  {
+    id: '4-4',
+    moduleId: '4',
+    order: 4,
+    title: 'Introduction to CLV Analysis',
+    slug: 'clv-introduction',
+    description: 'Customer lifetime value concepts, retention metrics, and strategic importance',
+    duration: '25 min read',
+    hasVisualization: true,
+    hasAnimation: true,
+    status: 'coming-soon'
+  },
+  {
+    id: '4-5',
+    moduleId: '4',
+    order: 5,
+    title: 'CLV Calculation and Application',
+    slug: 'clv-calculation',
+    description: 'CLV formulas, discount rates, and practical business applications',
+    duration: '25 min read',
+    hasVisualization: true,
+    hasAnimation: true,
+    status: 'coming-soon'
+  },
+  {
+    id: '4-6',
+    moduleId: '4',
+    order: 6,
+    title: 'AI-Generated Content and Engagement',
+    slug: 'agc-engagement',
+    description: 'AI content strategies, customer engagement metrics, and personalization',
+    duration: '20 min read',
+    hasVisualization: true,
+    hasAnimation: true,
+    status: 'coming-soon'
+  },
+  {
+    id: '4-7',
+    moduleId: '4',
+    order: 7,
+    title: 'Customer Churn and Incrementality',
+    slug: 'churn-incrementality',
+    description: 'Churn prediction, prevention strategies, and incrementality testing',
+    duration: '25 min read',
+    hasVisualization: true,
+    hasAnimation: true,
+    status: 'coming-soon'
+  },
+  {
+    id: '4-8',
+    moduleId: '4',
+    order: 8,
+    title: 'Python Demo: Segmentation and CLV',
+    slug: 'python-segmentation-clv',
+    description: 'Hands-on Python implementation of customer segmentation and CLV calculation',
+    duration: '30 min read',
+    hasVisualization: true,
+    hasAnimation: true,
+    status: 'coming-soon'
+  }
+];
+
+// =============================================================================
 // All Modules Definition
 // =============================================================================
 
@@ -384,13 +487,13 @@ export const modules: Module[] = [
   {
     id: '4',
     order: 4,
-    name: 'Module 4',
-    slug: 'module-4',
-    description: 'Coming soon',
-    icon: '🔍',
+    name: 'Customer Preferences and Lifetime Value Analysis',
+    slug: 'customer-preferences-clv',
+    description: 'Analyze customer preferences using STP and conjoint analysis, calculate customer lifetime value, and understand churn prevention through incrementality',
+    icon: '🎯',
     color: 'outcome',
-    lectures: [],
-    status: 'coming-soon'
+    lectures: module4Lectures,
+    status: 'active'
   },
   {
     id: '5',
