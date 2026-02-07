@@ -437,7 +437,7 @@ const module4Lectures: Lecture[] = [
     duration: '30 min read',
     hasVisualization: true,
     hasAnimation: true,
-    status: 'coming-soon'
+    status: 'ready'
   }
 ];
 

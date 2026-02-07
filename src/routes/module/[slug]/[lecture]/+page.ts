@@ -217,6 +217,11 @@ export const load: PageLoad = async ({ params }) => {
 					content = mod.lectureContent;
 					break;
 				}
+				case 'python-segmentation-clv': {
+					const mod = await import('$lib/content/module4/python-segmentation-clv');
+					content = mod.lectureContent;
+					break;
+				}
 			}
 		}
 	} catch (e) {

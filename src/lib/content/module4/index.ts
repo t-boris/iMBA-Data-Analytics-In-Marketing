@@ -24,3 +24,6 @@ export { lectureContent as agcEngagementContent } from './agc-engagement';
 
 // Lecture 7: Customer Churn and Incrementality
 export { lectureContent as churnIncrementalityContent } from './churn-incrementality';
+
+// Lecture 8: Python Demo — Segmentation and CLV
+export { lectureContent as pythonSegmentationClvContent } from './python-segmentation-clv';
