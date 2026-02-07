@@ -389,7 +389,7 @@ const module4Lectures: Lecture[] = [
     duration: '25 min read',
     hasVisualization: true,
     hasAnimation: true,
-    status: 'coming-soon'
+    status: 'ready'
   },
   {
     id: '4-5',
@@ -401,7 +401,7 @@ const module4Lectures: Lecture[] = [
     duration: '25 min read',
     hasVisualization: true,
     hasAnimation: true,
-    status: 'coming-soon'
+    status: 'ready'
   },
   {
     id: '4-6',
@@ -413,7 +413,7 @@ const module4Lectures: Lecture[] = [
     duration: '20 min read',
     hasVisualization: true,
     hasAnimation: true,
-    status: 'coming-soon'
+    status: 'ready'
   },
   {
     id: '4-7',
@@ -425,7 +425,7 @@ const module4Lectures: Lecture[] = [
     duration: '25 min read',
     hasVisualization: true,
     hasAnimation: true,
-    status: 'coming-soon'
+    status: 'ready'
   },
   {
     id: '4-8',

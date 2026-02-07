@@ -197,6 +197,26 @@ export const load: PageLoad = async ({ params }) => {
 					content = mod.lectureContent;
 					break;
 				}
+				case 'clv-introduction': {
+					const mod = await import('$lib/content/module4/clv-introduction');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'clv-calculation': {
+					const mod = await import('$lib/content/module4/clv-calculation');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'agc-engagement': {
+					const mod = await import('$lib/content/module4/agc-engagement');
+					content = mod.lectureContent;
+					break;
+				}
+				case 'churn-incrementality': {
+					const mod = await import('$lib/content/module4/churn-incrementality');
+					content = mod.lectureContent;
+					break;
+				}
 			}
 		}
 	} catch (e) {
