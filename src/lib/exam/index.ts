@@ -20,12 +20,14 @@ export type {
 export { module1Questions } from './questions/module1';
 export { module2Questions } from './questions/module2';
 export { module3Questions } from './questions/module3';
+export { module4Questions } from './questions/module4';
 
 // Aggregated questions
 import { module1Questions } from './questions/module1';
 import { module2Questions } from './questions/module2';
 import { module3Questions } from './questions/module3';
-export const allQuestions = [...module1Questions, ...module2Questions, ...module3Questions];
+import { module4Questions } from './questions/module4';
+export const allQuestions = [...module1Questions, ...module2Questions, ...module3Questions, ...module4Questions];
 
 // Get questions by module
 export function getQuestionsByModule(moduleId: string) {
@@ -39,6 +41,9 @@ export function getQuestionsByModule(moduleId: string) {
 		case 'module3':
 		case '3':
 			return module3Questions;
+		case 'module4':
+		case '4':
+			return module4Questions;
 		default:
 			return allQuestions;
 	}
