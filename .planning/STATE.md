@@ -9,21 +9,21 @@ See: .planning/PROJECT.md (updated 2026-01-20)
 
 ## Current Position
 
-Phase: 13 — Module 4 Content (4 plans, 2 complete)
-Plan: 13-02 complete (CLV Introduction + CLV Calculation)
+Phase: 13 — Module 4 Content (4 plans, 3 complete)
+Plan: 13-03 complete (AGC Engagement + Churn Incrementality)
 Status: Executing phase 13
-Last activity: 2026-02-07 — Completed 13-02-PLAN.md
+Last activity: 2026-02-07 — Completed 13-03-PLAN.md
 
-**Next:** Plan 13-03 (remaining Module 4 lectures)
+**Next:** Plan 13-04 (Lecture 8: Python Demo for Segmentation and CLV)
 
-Progress: ██████████ 100% (v1.0, v1.1) | Phase 13: 50%
+Progress: ██████████ 100% (v1.0, v1.1) | Phase 13: 75%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 33
+- Total plans completed: 34
 - Average duration: 6.2 min
-- Total execution time: ~3.4 hours
+- Total execution time: ~3.5 hours
 
 **v1.0 Summary:**
 
@@ -52,6 +52,8 @@ All v1.0 decisions marked as "Good" outcome.
 | 13 | Module 4 uses 'outcome' (green) color | Represents CLV/value outcomes |
 | 13 | Module 4 icon: target emoji | Differentiates from Module 1 |
 | 13 | CLV formula uses sum notation with M, R, i, T variables | Matches source material and standard finance notation |
+| 13 | AGC lecture uses AI/Human/Hybrid comparison diagram | Visualizes engagement trade-off clearly |
+| 13 | Churn lecture uses 2x2 matrix (risk x sensitivity) | Core incrementality framework from source material |
 
 ### Deferred Issues
 
@@ -74,5 +76,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-07
-Stopped at: Completed 13-02-PLAN.md
+Stopped at: Completed 13-03-PLAN.md
 Resume file: None
