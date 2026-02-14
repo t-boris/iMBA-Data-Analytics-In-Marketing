@@ -2,58 +2,40 @@
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-01-20)
+See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** Make abstract statistical and causal inference concepts crystal clear through visual explanations, interactive exploration, and comprehensive exam preparation
-**Current focus:** v1.2 Module 4 Content — Complete
+**Current focus:** Course complete — all 4 modules shipped
 
 ## Current Position
 
-Phase: 13 — Module 4 Content (4/4 plans complete)
-Plan: 13-04 complete (Lecture 8 + Glossary + Exam + Verification)
-Status: Phase 13 complete
-Last activity: 2026-02-07 — Completed 13-04-PLAN.md
+Phase: All phases complete (13/13)
+Status: Course content complete, deployed to Firebase
+Last activity: 2026-02-14 — v1.2 milestone shipped
 
-**Next:** Phase 12 (Module 3 Content) or next milestone
-
-Progress: ██████████ 100% (v1.0, v1.1) | Phase 13: 100%
+Progress: ██████████ 100% (v1.0 + v1.1 + v1.2)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 34
-- Average duration: 6.2 min
-- Total execution time: ~3.5 hours
+- Total plans completed: 42
+- Total phases: 13
+- Timeline: 2026-01-18 → 2026-02-14 (28 days)
 
-**v1.0 Summary:**
+**Milestones:**
 
-| Phase | Plans | Status |
-|-------|-------|--------|
-| 1. Foundation | 1 | Complete |
-| 2. Design System | 5 | Complete |
-| 3. Core Navigation | 3 | Complete |
-| 4. Visualization Engine | 4 | Complete |
-| 5. Animation System | 3 | Complete |
-| 6. Module 1 Content | 4 | Complete |
-| 7. Exam Preparation | 4 | Complete |
-| 8. Concept Glossary | 3 | Complete |
-| 9. Interactive Exploration | 3 | Complete |
-| 10. Polish & Deploy | - | Complete |
+| Milestone | Phases | Plans | Shipped |
+|-----------|--------|-------|---------|
+| v1.0 MVP | 1-10 | 30 | 2026-01-20 |
+| v1.1 Module 2 | 11 | 4 | 2026-01-22 |
+| v1.2 Modules 3-4 | 12-13 | 8 | 2026-02-14 |
 
 ## Accumulated Context
 
 ### Decisions
 
 Key decisions are logged in PROJECT.md Key Decisions table.
-All v1.0 decisions marked as "Good" outcome.
-
-| Phase | Decision | Rationale |
-|-------|----------|-----------|
-| 13 | Module 4 uses 'outcome' (green) color | Represents CLV/value outcomes |
-| 13 | Module 4 icon: target emoji | Differentiates from Module 1 |
-| 13 | CLV formula uses sum notation with M, R, i, T variables | Matches source material and standard finance notation |
-| 13 | AGC lecture uses AI/Human/Hybrid comparison diagram | Visualizes engagement trade-off clearly |
-| 13 | Churn lecture uses 2x2 matrix (risk x sensitivity) | Core incrementality framework from source material |
+All decisions marked as "Good" outcome.
 
 ### Deferred Issues
 
@@ -67,14 +49,8 @@ None.
 
 None.
 
-### Roadmap Evolution
-
-- Phase 13 added: Module 4 Content (Customer Preferences and Lifetime Value Analysis)
-- Phase 12 added: Module 3 Content (User, Firm, and AI-Generated Content Analysis)
-- Phase 11 added: Module 2 Content (AI, Prediction, and Machine Learning)
-
 ## Session Continuity
 
-Last session: 2026-02-07
-Stopped at: Completed Phase 13 (all 4 plans)
+Last session: 2026-02-14
+Stopped at: Course complete — v1.2 shipped, deployed to Firebase
 Resume file: None
