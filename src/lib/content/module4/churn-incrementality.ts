@@ -225,7 +225,7 @@ const upliftSteps: ExplanationStep[] = [
 		id: 'uplift-1',
 		title: 'The Concept',
 		description:
-			'Uplift modeling estimates the ADDITIONAL effect of an intervention on each individual customer. The core formula: Uplift = P(stay | treated) minus P(stay | not treated). This is essentially a medical approach applied to marketing: the customer is the patient, and the retention campaign is the therapy. The goal is to measure the treatment effect for each individual, not just predict the outcome.',
+			'Uplift modeling estimates the ADDITIONAL effect of an intervention on each individual customer. The core formula: Uplift = P(stay\u2009|\u2009treated) \u2212 P(stay\u2009|\u2009not treated). This is essentially a medical approach applied to marketing: the customer is the patient, and the retention campaign is the therapy. The goal is to measure the treatment effect for each individual, not just predict the outcome.',
 		diagram: {
 			nodes: [
 				{ id: 'treated', label: 'P(stay | treated)', type: 'treatment', x: 80, y: 90 },

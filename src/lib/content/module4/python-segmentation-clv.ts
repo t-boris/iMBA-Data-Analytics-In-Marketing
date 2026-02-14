@@ -241,7 +241,7 @@ const clvCalcSteps: ExplanationStep[] = [
 		id: 'clv-1',
 		title: 'Basic CLV',
 		description:
-			'The simplest CLV formula multiplies three components: purchase_value (average order amount), purchase_frequency (how often the customer buys per period), and lifespan (estimated relationship duration, set to 3 years in the demo). This is calculated per customer row: CLV = value x frequency x lifespan. The average CLV across all customers comes to approximately 300,000. This seems straightforward, but there is a critical problem with this calculation — it ignores the time value of money.',
+			'The simplest CLV formula multiplies three components: purchase_value (average order amount), purchase_frequency (how often the customer buys per period), and lifespan (estimated relationship duration, set to 3 years in the demo). This is calculated per customer row: CLV = value × frequency × lifespan. The average CLV across all customers comes to approximately 300,000. This seems straightforward, but there is a critical problem with this calculation — it ignores the time value of money.',
 		diagram: {
 			nodes: [
 				{ id: 'value', label: 'Purchase\nValue', type: 'variable', x: 50, y: 60 },

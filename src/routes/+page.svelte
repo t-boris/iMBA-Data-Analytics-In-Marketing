@@ -43,7 +43,7 @@
 				<div class="flex flex-wrap justify-center gap-4 text-sm text-slate-500 dark:text-slate-400">
 					<span class="flex items-center gap-2">
 						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
-						8 Modules
+						4 Modules
 					</span>
 					<span class="flex items-center gap-2">
 						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
@@ -66,7 +66,7 @@
 					Course Modules
 				</h2>
 				<span class="text-sm text-slate-500 dark:text-slate-400">
-					{modules.filter(m => m.status === 'active').length} of {modules.length} available
+					{modules.length} modules
 				</span>
 			</div>
 
@@ -76,12 +76,13 @@
 					{@const colorClasses = getModuleColorClasses(module.color)}
 					<a
 						href="/module/{module.slug}"
-						class="block group"
+						class="block group h-full"
 					>
 						<Card
 							padding="default"
 							hover
 							variant="default"
+							class="h-full"
 						>
 							<div class="relative {isComingSoon ? 'opacity-60' : ''}">
 								<!-- Module Header -->

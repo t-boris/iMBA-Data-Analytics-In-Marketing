@@ -322,6 +322,51 @@
 		color: #f8fafc;
 	}
 
+	/* Formula block styling */
+	:global(.content-section .formula) {
+		display: block;
+		text-align: center;
+		font-size: 1.25rem;
+		line-height: 2;
+		padding: 1.25rem 1.5rem;
+		margin: 1.5rem 0;
+		background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+		border: 1px solid #e2e8f0;
+		border-left: 4px solid #3b82f6;
+		border-radius: 0.5rem;
+		font-family: 'Georgia', 'Times New Roman', serif;
+		letter-spacing: 0.02em;
+		color: #0f172a;
+		overflow-x: auto;
+	}
+
+	:global(.dark .content-section .formula) {
+		background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+		border-color: #334155;
+		border-left-color: #60a5fa;
+		color: #f1f5f9;
+	}
+
+	:global(.content-section .formula sub) {
+		font-size: 0.75em;
+		vertical-align: sub;
+	}
+
+	:global(.content-section .formula sup) {
+		font-size: 0.75em;
+		vertical-align: super;
+	}
+
+	:global(.content-section .formula .var) {
+		font-style: italic;
+		font-weight: 500;
+	}
+
+	:global(.content-section .formula .op) {
+		margin: 0 0.15em;
+		font-style: normal;
+	}
+
 	/* Highlight.js syntax colors */
 	:global(.hljs-keyword) { color: #c792ea; }
 	:global(.hljs-string) { color: #c3e88d; }
@@ -346,43 +391,43 @@
 	}
 
 	:global(.content-section thead) {
-		background-color: #1e293b;
+		background-color: #f1f5f9;
 	}
 
 	:global(.content-section th) {
 		padding: 0.75rem 1rem;
 		text-align: left;
 		font-weight: 600;
-		color: #f1f5f9;
-		border-bottom: 2px solid #334155;
+		color: #1e293b;
+		border-bottom: 2px solid #cbd5e1;
 	}
 
 	:global(.content-section td) {
 		padding: 0.75rem 1rem;
-		border-bottom: 1px solid #334155;
-		color: #e2e8f0;
-	}
-
-	:global(.content-section tbody tr:hover) {
-		background-color: #1e293b;
-	}
-
-	/* Light mode table overrides */
-	:global(.light .content-section thead) {
-		background-color: #f1f5f9;
-	}
-
-	:global(.light .content-section th) {
-		color: #1e293b;
-		border-bottom-color: #cbd5e1;
-	}
-
-	:global(.light .content-section td) {
-		border-bottom-color: #e2e8f0;
+		border-bottom: 1px solid #e2e8f0;
 		color: #334155;
 	}
 
-	:global(.light .content-section tbody tr:hover) {
+	:global(.content-section tbody tr:hover) {
 		background-color: #f8fafc;
+	}
+
+	/* Dark mode table overrides */
+	:global(.dark .content-section thead) {
+		background-color: #1e293b;
+	}
+
+	:global(.dark .content-section th) {
+		color: #f1f5f9;
+		border-bottom-color: #334155;
+	}
+
+	:global(.dark .content-section td) {
+		border-bottom-color: #334155;
+		color: #e2e8f0;
+	}
+
+	:global(.dark .content-section tbody tr:hover) {
+		background-color: #1e293b;
 	}
 </style>

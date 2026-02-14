@@ -1,6 +1,6 @@
 /**
  * Module and Lecture type definitions for the iMBA Data Analytics app.
- * These types power the navigation and content system for all 8 course modules.
+ * These types power the navigation and content system for all 4 course modules.
  */
 
 /**
@@ -39,7 +39,7 @@ export type ModuleColor = 'treatment' | 'control' | 'confounder' | 'outcome' | '
  * Represents a course module containing multiple lectures.
  */
 export interface Module {
-  /** Unique identifier for the module (1-8) */
+  /** Unique identifier for the module (1-4) */
   id: string;
   /** Display order in navigation (1-based) */
   order: number;
@@ -60,9 +60,9 @@ export interface Module {
 }
 
 /**
- * Valid module IDs (1 through 8).
+ * Valid module IDs (1 through 4).
  */
-export type ModuleId = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8';
+export type ModuleId = '1' | '2' | '3' | '4';
 
 /**
  * Lecture status for filtering and display.

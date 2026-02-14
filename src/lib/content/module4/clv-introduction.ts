@@ -168,7 +168,7 @@ const clvComponentsSection: ContentSection = {
 
 **Contribution Margin (M)** — The profit generated per customer per period after subtracting variable costs from revenue. This is NOT revenue — it is revenue minus the direct costs of serving that customer. Contribution margin **increases** CLV as it represents the recurring profit stream.
 
-**Retention Rate (R)** — The probability that a customer remains active from one period to the next. Retention **multiplies** CLV because it compounds over time: a 75% retention rate means only 56.25% remain after two years (0.75 x 0.75), and only 42.19% after three years.
+**Retention Rate (R)** — The probability that a customer remains active from one period to the next. Retention **multiplies** CLV because it compounds over time: a 75% retention rate means only 56.25% remain after two years (0.75 \u00d7 0.75), and only 42.19% after three years.
 
 **Discount Rate (i)** — The rate used to convert future cash flows to present value, typically reflecting the company's cost of capital. The discount rate **discounts** CLV by making future profits worth less than current profits, accounting for inflation, risk, and opportunity cost.`
 };
@@ -228,7 +228,7 @@ const discountSteps: ExplanationStep[] = [
 		id: 'disc-2',
 		title: 'Time Value of Money',
 		description:
-			'Money today is worth more than the same amount in the future due to three factors: inflation erodes purchasing power over time, risk means future payments may not materialize, and opportunity cost means today\'s money could be invested for returns. The formula for present value is: Present Value = Future Cash Flow / (1 + r)^t, where r is the discount rate and t is the number of periods. At a 10% discount rate, $100 in 3 years is worth only $75.13 today.',
+			'Money today is worth more than the same amount in the future due to three factors: inflation erodes purchasing power over time, risk means future payments may not materialize, and opportunity cost means today\'s money could be invested for returns. The formula for present value is: PV = FV / (1 + r)\u1D57, where r is the discount rate and t is the number of periods. At a 10% discount rate, $100 in 3 years is worth only $75.13 today.',
 		diagram: {
 			nodes: [
 				{ id: 'today', label: '$100 Today', type: 'outcome', x: 80, y: 90 },

@@ -1,6 +1,6 @@
 /**
  * Centralized module data for the iMBA Data Analytics app.
- * Contains all 8 course modules with Module 1 fully defined.
+ * Contains all 4 course modules.
  */
 
 import type { Module, Lecture, ModuleColor } from '$lib/types/module';
@@ -446,9 +446,7 @@ const module4Lectures: Lecture[] = [
 // =============================================================================
 
 /**
- * All 8 course modules.
- * Modules 1-2 are fully defined with lectures.
- * Modules 3-8 are placeholders for future content.
+ * All 4 course modules.
  */
 export const modules: Module[] = [
   {
@@ -494,50 +492,6 @@ export const modules: Module[] = [
     color: 'outcome',
     lectures: module4Lectures,
     status: 'active'
-  },
-  {
-    id: '5',
-    order: 5,
-    name: 'Module 5',
-    slug: 'module-5',
-    description: 'Coming soon',
-    icon: '💡',
-    color: 'treatment',
-    lectures: [],
-    status: 'coming-soon'
-  },
-  {
-    id: '6',
-    order: 6,
-    name: 'Module 6',
-    slug: 'module-6',
-    description: 'Coming soon',
-    icon: '🧪',
-    color: 'control',
-    lectures: [],
-    status: 'coming-soon'
-  },
-  {
-    id: '7',
-    order: 7,
-    name: 'Module 7',
-    slug: 'module-7',
-    description: 'Coming soon',
-    icon: '📉',
-    color: 'confounder',
-    lectures: [],
-    status: 'coming-soon'
-  },
-  {
-    id: '8',
-    order: 8,
-    name: 'Module 8',
-    slug: 'module-8',
-    description: 'Coming soon',
-    icon: '🎓',
-    color: 'outcome',
-    lectures: [],
-    status: 'coming-soon'
   }
 ];
 
@@ -547,7 +501,7 @@ export const modules: Module[] = [
 
 /**
  * Get a module by its ID.
- * @param id - Module ID (1-8)
+ * @param id - Module ID (1-4)
  * @returns The module or undefined if not found
  */
 export function getModuleById(id: string): Module | undefined {
@@ -565,7 +519,7 @@ export function getModuleBySlug(slug: string): Module | undefined {
 
 /**
  * Get a lecture by module ID and lecture ID.
- * @param moduleId - Module ID (1-8)
+ * @param moduleId - Module ID (1-4)
  * @param lectureId - Lecture ID (e.g., "1-1")
  * @returns The lecture or undefined if not found
  */

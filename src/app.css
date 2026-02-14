@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Enable class-based dark mode for Tailwind 4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* =========================================
    Design System: Color Palette
    ========================================= */
@@ -28,34 +31,8 @@
   --color-text-muted: #94a3b8;      /* Slate-400 - captions */
 }
 
-/* Dark mode - via system preference */
-@media (prefers-color-scheme: dark) {
-  :root:not(.light) {
-    /* Brand colors - adjusted for dark mode */
-    --color-primary: #60a5fa;         /* Lighter blue */
-    --color-secondary: #94a3b8;       /* Lighter slate */
-    --color-accent: #fbbf24;          /* Brighter amber */
-
-    /* Semantic colors for diagrams - slightly brighter for dark backgrounds */
-    --color-treatment: #4ade80;       /* Brighter green */
-    --color-control: #60a5fa;         /* Brighter blue */
-    --color-confounder: #f87171;      /* Brighter red */
-    --color-outcome: #a78bfa;         /* Brighter purple */
-    --color-arrow: #94a3b8;           /* Lighter gray */
-
-    /* Background variants - dark mode */
-    --color-surface: #1e293b;         /* Slate-800 */
-    --color-surface-alt: #0f172a;     /* Slate-900 */
-    --color-muted: #334155;           /* Slate-700 */
-
-    /* Text colors - dark mode */
-    --color-text-primary: #f8fafc;    /* Slate-50 */
-    --color-text-secondary: #cbd5e1;  /* Slate-300 */
-    --color-text-muted: #64748b;      /* Slate-500 */
-  }
-}
-
-/* Dark mode - via .dark class (JavaScript controlled) */
+/* Dark mode - via .dark class (JavaScript controlled)
+   The theme store handles system preference by adding .dark class when needed */
 :root.dark {
   /* Brand colors - adjusted for dark mode */
   --color-primary: #60a5fa;         /* Lighter blue */

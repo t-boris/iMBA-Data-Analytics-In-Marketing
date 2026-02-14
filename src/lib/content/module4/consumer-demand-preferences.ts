@@ -230,7 +230,7 @@ const clvPreviewSection: ContentSection = {
 
 **Conceptual Equation:**
 
-> CLV = Sum of discounted future profits from a customer
+<span class="formula">CLV <span class="op">=</span> <span class="op">Σ</span> discounted future profits from a customer</span>
 
 **Key Components:**
 - **Retention Rate (r)** — The probability that a customer continues doing business with you from one period to the next

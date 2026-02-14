@@ -25,7 +25,7 @@ const clvFormulaSection: ContentSection = {
 	title: 'The CLV Formula',
 	content: `The general CLV formula calculates the sum of discounted, retention-adjusted contributions over a planning horizon:
 
-**CLV = sum of (M x R^t) / (1 + i)^t for t = 1 to T**
+<span class="formula">CLV <span class="op">=</span> <span class="op">Σ</span><sub><span class="var">t</span>=1</sub><sup><span class="var">T</span></sup> <span class="var">M</span> <span class="op">×</span> <span class="var">R<sup>t</sup></span> <span class="op">/</span> (1 + <span class="var">i</span>)<sup><span class="var">t</span></sup></span>
 
 Each variable in this formula has a specific meaning and strategic implication:
 
@@ -40,7 +40,7 @@ Each variable in this formula has a specific meaning and strategic implication:
 
 **Critical exam distinction:** Contribution Margin is NOT revenue. It is revenue minus variable costs of serving the customer. Using revenue instead of margin is a common error that dramatically overstates CLV.
 
-**How the formula works:** For each future year, the expected margin (M) is multiplied by the probability that the customer is still active (R^t) and then discounted to present value by dividing by (1 + i)^t. The sum of all these discounted, retention-adjusted yearly values gives the total CLV.`
+**How the formula works:** For each future year, the expected margin (<em>M</em>) is multiplied by the probability that the customer is still active (<em>R<sup>t</sup></em>) and then discounted to present value by dividing by (1 + <em>i</em>)<sup><em>t</em></sup>. The sum of all these discounted, retention-adjusted yearly values gives the total CLV.`
 };
 
 // =============================================================================
@@ -56,7 +56,7 @@ const calculationSteps: ExplanationStep[] = [
 		diagram: {
 			nodes: [
 				{ id: 'sub', label: 'Subscription\n$150/year', type: 'treatment', x: 80, y: 60 },
-				{ id: 'extras', label: 'Extras Margin\n$50 x 70% = $35', type: 'treatment', x: 280, y: 60 },
+				{ id: 'extras', label: 'Extras Margin\n$50 \u00d7 70% = $35', type: 'treatment', x: 280, y: 60 },
 				{ id: 'total', label: 'Total Margin\n$185/year', type: 'outcome', x: 180, y: 150 }
 			],
 			edges: [
@@ -88,11 +88,11 @@ const calculationSteps: ExplanationStep[] = [
 		id: 'calc-3',
 		title: 'Year 2',
 		description:
-			'In Year 2, two forces reduce the contribution: (1) Only 75% of customers remain active (retention rate R = 0.75), and (2) future value is discounted at 10%. The calculation: $185 x 0.75 / 1.10 = $138.75 / 1.10 = approximately $126. Only 75% of customers are still paying, and their future dollars are worth less than today\'s dollars. Cumulative 2-year CLV = $185 + $126 = $311.',
+			'In Year 2, two forces reduce the contribution: (1) Only 75% of customers remain active (retention rate R = 0.75), and (2) future value is discounted at 10%. The calculation: $185 \u00d7 0.75 / 1.10 = $138.75 / 1.10 \u2248 $126. Only 75% of customers are still paying, and their future dollars are worth less than today\'s dollars. Cumulative 2-year CLV = $185 + $126 = $311.',
 		diagram: {
 			nodes: [
 				{ id: 'y2-margin', label: 'Margin\n$185', type: 'variable', x: 50, y: 70 },
-				{ id: 'y2-ret', label: 'x 0.75\nRetention', type: 'confounder', x: 160, y: 70 },
+				{ id: 'y2-ret', label: '\u00d7 0.75\nRetention', type: 'confounder', x: 160, y: 70 },
 				{ id: 'y2-disc', label: '/ 1.10\nDiscount', type: 'control', x: 270, y: 70 },
 				{ id: 'y2-result', label: 'Year 2\n= $126', type: 'outcome', x: 380, y: 70 }
 			],
@@ -103,18 +103,18 @@ const calculationSteps: ExplanationStep[] = [
 			]
 		},
 		highlights: ['y2-ret', 'y2-disc', 'y2-result'],
-		annotations: [{ targetId: 'y2-result', text: '$185 x 0.75 / 1.10', position: 'bottom' }]
+		annotations: [{ targetId: 'y2-result', text: '$185 \u00d7 0.75 / 1.10', position: 'bottom' }]
 	},
 	{
 		id: 'calc-4',
 		title: 'Year 3',
 		description:
-			'In Year 3, the compounding effect becomes clear. Retention applies squared: 0.75^2 = 0.5625 (only 56.25% of original customers remain). Discounting also compounds: (1.10)^2 = 1.21. The calculation: $185 x 0.5625 / 1.21 = $104.06 / 1.21 = approximately $86. Each additional year adds progressively less value due to the double compression of retention loss and discounting. Cumulative 3-year CLV = $185 + $126 + $86 = $397.',
+			'In Year 3, the compounding effect becomes clear. Retention applies squared: 0.75\u00b2 = 0.5625 (only 56.25% of original customers remain). Discounting also compounds: (1.10)\u00b2 = 1.21. The calculation: $185 \u00d7 0.5625 / 1.21 = $104.06 / 1.21 \u2248 $86. Each additional year adds progressively less value due to the double compression of retention loss and discounting. Cumulative 3-year CLV = $185 + $126 + $86 = $397.',
 		diagram: {
 			nodes: [
 				{ id: 'y3-margin', label: 'Margin\n$185', type: 'variable', x: 50, y: 70 },
-				{ id: 'y3-ret', label: 'x 0.75^2\n= 0.5625', type: 'confounder', x: 160, y: 70 },
-				{ id: 'y3-disc', label: '/ 1.10^2\n= 1.21', type: 'control', x: 270, y: 70 },
+				{ id: 'y3-ret', label: '\u00d7 0.75\u00b2\n= 0.5625', type: 'confounder', x: 160, y: 70 },
+				{ id: 'y3-disc', label: '/ 1.10\u00b2\n= 1.21', type: 'control', x: 270, y: 70 },
 				{ id: 'y3-result', label: 'Year 3\n= $86', type: 'outcome', x: 380, y: 70 }
 			],
 			edges: [
@@ -210,7 +210,7 @@ const whyLessSection: ContentSection = {
 
 With a 75% retention rate, the proportion of original customers remaining drops rapidly:
 
-| Year | Retention Probability (R^t) | Customers Remaining |
+| Year | Retention Probability (<em>R<sup>t</sup></em>) | Customers Remaining |
 |---|---|---|
 | 1 | 1.000 | 100% |
 | 2 | 0.750 | 75.0% |
@@ -224,7 +224,7 @@ By Year 5, less than one-third of the original customer cohort remains active.
 
 At a 10% discount rate, the present value of $1 received in the future declines:
 
-| Year | Discount Factor 1/(1+i)^t | $1 Worth Today |
+| Year | Discount Factor 1/(1+<em>i</em>)<sup><em>t</em></sup> | $1 Worth Today |
 |---|---|---|
 | 1 | 1.000 | $1.000 |
 | 2 | 0.909 | $0.909 |
@@ -253,7 +253,7 @@ const retentionLeverSection: ContentSection = {
 	id: 'retention-lever',
 	type: 'text',
 	title: 'The Retention Lever',
-	content: `Small changes in retention have **outsized impact** on CLV because retention compounds exponentially through the R^t term. This makes retention the single most powerful lever for increasing customer lifetime value.
+	content: `Small changes in retention have **outsized impact** on CLV because retention compounds exponentially through the <em>R<sup>t</sup></em> term. This makes retention the single most powerful lever for increasing customer lifetime value.
 
 **Comparison: 75% vs 85% retention (3-year horizon, M=$185, i=10%)**
 
@@ -268,7 +268,7 @@ A 10 percentage point improvement in retention (from 75% to 85%) increases 3-yea
 
 **Why the effect is so powerful:**
 
-The retention rate affects every future year multiplicatively through R^t. At 75% retention, by Year 3 only 56.25% of customers remain (0.75^2). At 85% retention, 72.25% remain (0.85^2). That difference — 72.25% vs 56.25% — means 28% more customers generating revenue in Year 3.
+The retention rate affects every future year multiplicatively through <em>R<sup>t</sup></em>. At 75% retention, by Year 3 only 56.25% of customers remain (0.75<sup>2</sup>). At 85% retention, 72.25% remain (0.85<sup>2</sup>). That difference — 72.25% vs 56.25% — means 28% more customers generating revenue in Year 3.
 
 **Over longer horizons, the gap widens dramatically:**
 
@@ -294,7 +294,11 @@ const managerialSection: ContentSection = {
 
 **Maximum Allowable Customer Acquisition Cost**
 
-If CLV = $397, then spending $400 to acquire a customer is a guaranteed loss. The maximum allowable CAC is the CLV minus desired profit margin. If you target a 20% margin on acquisition, your maximum CAC = $397 x 0.80 = $318. Any channel that acquires customers for less than $318 is profitable.
+If CLV = $397, then spending $400 to acquire a customer is a guaranteed loss. The maximum allowable CAC is the CLV minus desired profit margin. If you target a 20% margin on acquisition:
+
+<span class="formula">Max CAC <span class="op">=</span> $397 <span class="op">×</span> 0.80 <span class="op">=</span> <strong>$318</strong></span>
+
+Any channel that acquires customers for less than $318 is profitable.
 
 **Retention Program ROI**
 
@@ -325,9 +329,9 @@ const examPointsSection: ContentSection = {
 
 **The CLV Formula:**
 
-CLV = sum of (M x R^t) / (1 + i)^t for t = 1 to T
+<span class="formula">CLV <span class="op">=</span> <span class="op">Σ</span><sub><span class="var">t</span>=1</sub><sup><span class="var">T</span></sup> <span class="var">M</span> <span class="op">×</span> <span class="var">R<sup>t</sup></span> <span class="op">/</span> (1 + <span class="var">i</span>)<sup><span class="var">t</span></sup></span>
 
-Where: T = planning horizon, M = contribution margin, R = retention probability, i = discount rate.
+Where: <em>T</em> = planning horizon, <em>M</em> = contribution margin, <em>R</em> = retention probability, <em>i</em> = discount rate.
 
 **Critical Distinctions:**
 
@@ -335,7 +339,7 @@ Where: T = planning horizon, M = contribution margin, R = retention probability,
 
 2. **Why Discounting is Necessary** — Money today is worth more than money tomorrow due to inflation, risk, and opportunity cost. Undiscounted CLV overstates the true value of customers.
 
-3. **Effect of Retention on CLV** — Retention enters the formula as R^t, creating exponential impact. A small increase in retention has a compounding effect across all future years, making it the most powerful CLV lever.
+3. **Effect of Retention on CLV** — Retention enters the formula as <em>R<sup>t</sup></em>, creating exponential impact. A small increase in retention has a compounding effect across all future years, making it the most powerful CLV lever.
 
 4. **Cumulative CLV Interpretation** — Each additional year adds less than the previous year due to the combined effects of retention loss and discounting. The first year typically contributes the most to total CLV.
 

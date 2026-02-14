@@ -195,17 +195,25 @@ const partWorthSection: ContentSection = {
 - Each attribute group shows its relative importance (percentage)
 - Within each group, levels have positive or negative utility values
 - Higher utility = more preferred by customers
-- **Total Utility of a profile = Sum of part-worth utilities of its attribute levels**
+- <span class="formula"><span class="var">U</span><sub>profile</sub> <span class="op">=</span> <span class="op">Σ</span> part-worth utilities of its attribute levels</span>
 
 **Example calculation:**
 
-A phone with Low Price (+0.8) + Excellent Camera (+0.5) + Medium Battery (+0.1) + Medium Screen (+0.1) = **Total Utility: 1.5**
+A phone with Low Price (+0.8) + Excellent Camera (+0.5) + Medium Battery (+0.1) + Medium Screen (+0.1):
 
-A phone with High Price (-0.5) + Basic Camera (-0.3) + Long Battery (+0.3) + Large Screen (+0.2) = **Total Utility: -0.3**
+<span class="formula"><span class="var">U</span> <span class="op">=</span> 0.8 <span class="op">+</span> 0.5 <span class="op">+</span> 0.1 <span class="op">+</span> 0.1 <span class="op">=</span> <strong>1.5</strong></span>
+
+A phone with High Price (-0.5) + Basic Camera (-0.3) + Long Battery (+0.3) + Large Screen (+0.2):
+
+<span class="formula"><span class="var">U</span> <span class="op">=</span> −0.5 <span class="op">+</span> (−0.3) <span class="op">+</span> 0.3 <span class="op">+</span> 0.2 <span class="op">=</span> <strong>−0.3</strong></span>
 
 The first configuration is strongly preferred because it maximizes the most important attribute (price) and the second-most important (camera).
 
-**Attribute importance** is calculated as: the range of utility values for an attribute divided by the total range across all attributes. Price has the widest range (1.3 = 0.8 - (-0.5)), indicating it drives the most variation in customer preference.`
+**Attribute importance** is calculated as:
+
+<span class="formula">Importance<sub><span class="var">i</span></sub> <span class="op">=</span> Range<sub><span class="var">i</span></sub> <span class="op">/</span> <span class="op">Σ</span> Range<sub>all</sub></span>
+
+Price has the widest range (1.3 = 0.8 − (−0.5)), indicating it drives the most variation in customer preference.`
 };
 
 // =============================================================================
